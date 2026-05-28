@@ -3,6 +3,7 @@ import { HeroSection7 } from "@/components/HeroSection7"
 import { FeatureSection9 } from "@/components/FeatureSection9"
 import { FeatureSection3 } from "@/components/FeatureSection3"
 import { ProductsSection } from "@/components/ProductsSection"
+import { GalleryCarousel } from "@/components/GalleryCarousel"
 import { TestimonialsSection5 } from "@/components/TestimonialsSection5"
 import { TsrBanner } from "@/components/TsrBanner"
 import { PricingSection4 } from "@/components/PricingSection4"
@@ -18,6 +19,7 @@ const Index = () => {
       <FeatureSection9 />
       <FeatureSection3 />
       <ProductsSection />
+      <GalleryCarousel />
       <TestimonialsSection5 />
       <section className="py-6 md:py-8 bg-background">
         <TsrBanner />
