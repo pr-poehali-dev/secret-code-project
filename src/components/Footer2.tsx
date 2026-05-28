@@ -1,7 +1,6 @@
 import { Logo } from "./Logo"
 import { Separator } from "@/components/ui/separator"
 import Icon from "@/components/ui/icon"
-import { Link } from "react-router-dom"
 
 export function Footer2() {
   return (
@@ -39,9 +38,9 @@ export function Footer2() {
               <a href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 О нас
               </a>
-              <Link to="/catalog" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              <a href="/catalog" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
                 Каталог
-              </Link>
+              </a>
               <a href="tel:+79055021502" className="text-muted-foreground hover:text-foreground transition-colors">
                 Контакты
               </a>
