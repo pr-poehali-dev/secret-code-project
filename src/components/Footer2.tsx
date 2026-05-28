@@ -1,8 +1,10 @@
 import { Logo } from "./Logo"
 import { Separator } from "@/components/ui/separator"
 import Icon from "@/components/ui/icon"
+import { useAnchorNav } from "@/hooks/useAnchorNav"
 
 export function Footer2() {
+  const goTo = useAnchorNav()
   return (
     <footer className="bg-muted py-16 lg:py-24" role="contentinfo" aria-label="Подвал сайта">
       <div className="container px-6 mx-auto flex flex-col gap-12 lg:gap-16">
@@ -35,7 +37,7 @@ export function Footer2() {
               <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
                 Главная
               </a>
-              <a href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#features" onClick={goTo("features")} className="text-muted-foreground hover:text-foreground transition-colors">
                 О нас
               </a>
               <a href="/catalog" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
@@ -44,10 +46,10 @@ export function Footer2() {
               <a href="tel:+79055021502" className="text-muted-foreground hover:text-foreground transition-colors">
                 Контакты
               </a>
-              <a href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#pricing" onClick={goTo("pricing")} className="text-muted-foreground hover:text-foreground transition-colors">
                 Тарифы
               </a>
-              <a href="/#faq" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#faq" onClick={goTo("faq")} className="text-muted-foreground hover:text-foreground transition-colors">
                 Вопросы
               </a>
             </nav>

@@ -39,14 +39,19 @@ export default function CategoryPage() {
           </nav>
 
           {/* Заголовок */}
-          <div className="flex flex-col gap-3">
+          <div className="flex flex-col gap-4">
             <Link
               to={`/catalog?tab=${category.tab}`}
-              className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full w-fit"
+              className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full w-fit hover:bg-primary/20 transition-colors"
             >
               {category.tab === "child" ? "Детская реабилитация" : "Взрослая реабилитация"}
             </Link>
-            <h1 className="text-2xl md:text-3xl font-bold text-foreground">{category.title}</h1>
+            <div className="flex items-center gap-4">
+              <div className="flex items-center justify-center w-14 h-14 rounded-2xl bg-primary/10 shrink-0">
+                <Icon name={category.icon} size={28} className="text-primary" />
+              </div>
+              <h1 className="text-2xl md:text-3xl font-bold text-foreground">{category.title}</h1>
+            </div>
             <p className="text-muted-foreground text-base leading-relaxed">{category.description}</p>
           </div>
 
