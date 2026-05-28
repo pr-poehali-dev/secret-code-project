@@ -52,6 +52,15 @@ export function Footer2() {
 
           <Separator role="presentation" />
 
+          <div className="flex flex-col gap-2 text-xs text-muted-foreground">
+            <p className="font-medium text-foreground text-sm">Реквизиты</p>
+            <p>ИП Тамбовцев Алексей Сергеевич &nbsp;·&nbsp; ИНН: 502982372818</p>
+            <p>Банк: ООО «Банк Точка» &nbsp;·&nbsp; БИК: 044525104</p>
+            <p>Р/с: 40802810920001005892 &nbsp;·&nbsp; К/с: 30101810745374525104</p>
+          </div>
+
+          <Separator role="presentation" />
+
           <div className="flex flex-col lg:flex-row justify-between items-center gap-12 text-center">
             <p className="text-muted-foreground order-2 md:order-1">
               2025 ОртоЦентр. Все права защищены.
