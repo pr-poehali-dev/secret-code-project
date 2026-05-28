@@ -59,7 +59,7 @@ export function Footer2() {
 
           <div className="flex flex-col lg:flex-row justify-between items-center gap-12 text-center">
             <p className="text-muted-foreground order-2 md:order-1">
-              2025 ОртоМастер. Все права защищены.
+              2025 ОртоЦентр. Все права защищены.
             </p>
 
             <nav

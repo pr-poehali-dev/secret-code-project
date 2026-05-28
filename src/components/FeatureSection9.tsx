@@ -29,7 +29,7 @@ export function FeatureSection9() {
       <div className="container mx-auto px-6 flex flex-col gap-12 md:gap-16">
         <div className="flex flex-col gap-4 md:gap-5 max-w-xl mx-auto text-center">
           <p className="text-sm md:text-base font-semibold text-muted-foreground">Наши преимущества</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Почему выбирают ОртоМастер?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">Почему выбирают ОртоЦентр?</h2>
           <p className="text-base text-muted-foreground">
             Мы создаём изделия, которые действительно помогают — с заботой о вашем здоровье и комфорте.
           </p>

@@ -22,7 +22,7 @@ export function Logo() {
           strokeLinecap="round"
         />
       </svg>
-      <span className="text-lg font-bold text-foreground">ОртоМастер</span>
+      <span className="text-lg font-bold text-foreground">ОртоЦентр</span>
     </div>
   )
 }
