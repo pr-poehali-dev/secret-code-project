@@ -31,8 +31,8 @@ export function HeroSection7() {
         <div className="w-full overflow-hidden rounded-xl border bg-background shadow-xl">
           <AspectRatio ratio={16 / 9}>
             <img
-              src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/d521ff26-2eec-4036-8e26-020098014db4.jpg"
-              alt="Индивидуальные ортоаппараты на заказ"
+              src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/457e83a7-2470-4d79-b5d9-0544bde34d0b.jpg"
+              alt="Аппарат на всю ногу — индивидуальное изготовление"
               className="object-cover w-full h-full"
             />
           </AspectRatio>
