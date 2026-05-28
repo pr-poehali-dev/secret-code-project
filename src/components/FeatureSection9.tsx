@@ -25,7 +25,7 @@ const features = [
 
 export function FeatureSection9() {
   return (
-    <section className="bg-background py-16 md:py-24">
+    <section id="features" className="bg-background py-16 md:py-24">
       <div className="container mx-auto px-6 flex flex-col gap-12 md:gap-16">
         <div className="flex flex-col gap-4 md:gap-5 max-w-xl mx-auto text-center">
           <p className="text-sm md:text-base font-semibold text-muted-foreground">Наши преимущества</p>

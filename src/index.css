@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* Default */
 @layer base {
   :root {
@@ -24,7 +28,7 @@
     --border: 230 27% 27%;
     --input: 230 33% 21%;
     --ring: 351 60% 83%;
-    --radius: 0.750rem;
+    --radius: 0.75rem;
     --chart-1: 173 58% 39%;
     --chart-2: 12 76% 61%;
     --chart-3: 197 37% 24%;
@@ -50,7 +54,21 @@
   body {
     @apply bg-background text-foreground;
     font-family:
-      var(--font-onest), ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      var(--font-onest),
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      Arial,
+      "Noto Sans",
+      sans-serif,
+      "Apple Color Emoji",
+      "Segoe UI Emoji",
+      "Segoe UI Symbol",
+      "Noto Color Emoji";
   }
 }
 

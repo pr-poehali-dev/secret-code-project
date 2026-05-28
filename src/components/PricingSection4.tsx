@@ -45,7 +45,7 @@ const plans = [
 
 export function PricingSection4() {
   return (
-    <section className="py-16 md:py-24 pattern-1 bg-muted" aria-labelledby="pricing-section-title-4">
+    <section id="pricing" className="py-16 md:py-24 pattern-1 bg-muted" aria-labelledby="pricing-section-title-4">
       <div className="container mx-auto px-6">
         <div className="flex flex-col items-center gap-8">
           <div className="flex flex-col items-center gap-4 md:gap-5 max-w-xl text-center">

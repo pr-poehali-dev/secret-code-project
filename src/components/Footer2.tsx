@@ -35,16 +35,16 @@ export function Footer2() {
               <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
                 Главная
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 О нас
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="tel:+79055021502" className="text-muted-foreground hover:text-foreground transition-colors">
                 Контакты
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-                Поддержка
+              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+                Тарифы
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">
                 Вопросы
               </a>
             </nav>

@@ -19,7 +19,7 @@ const testimonials = [
 
 export function TestimonialsSection5() {
   return (
-    <section className="py-16 md:py-24 bg-background" aria-labelledby="testimonial-title">
+    <section id="reviews" className="py-16 md:py-24 bg-background" aria-labelledby="testimonial-title">
       <div className="container mx-auto px-6">
         <div className="flex flex-col gap-12">
           <div className="flex flex-col gap-4 md:gap-5 max-w-xl text-center md:text-left">
