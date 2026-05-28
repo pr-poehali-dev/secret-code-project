@@ -1,6 +1,6 @@
 export function Logo() {
   return (
-    <div className="flex items-center gap-2" aria-label="СмартФлоу логотип" role="img">
+    <div className="flex items-center gap-2" aria-label="ОртоМастер логотип" role="img">
       <svg
         width="24"
         height="24"
@@ -9,14 +9,20 @@ export function Logo() {
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M2 4C2.6 4.5 3.2 5 4.5 5C7 5 7 3 9.5 3C12.1 3 11.9 5 14.5 5C17 5 17 3 19.5 3C20.8 3 21.4 3.5 22 4M2 12C2.6 12.5 3.2 13 4.5 13C7 13 7 11 9.5 11C12.1 11 11.9 13 14.5 13C17 13 17 11 19.5 11C20.8 11 21.4 11.5 22 12M2 20C2.6 20.5 3.2 21 4.5 21C7 21 7 19 9.5 19C12.1 19 11.9 21 14.5 21C17 21 17 19 19.5 19C20.8 19 21.4 19.5 22 20"
-          stroke="#EEBBC3"
+          d="M12 2C8.5 2 6 4.5 6 7.5C6 9.5 7 11.2 8.5 12.3L7 22H17L15.5 12.3C17 11.2 18 9.5 18 7.5C18 4.5 15.5 2 12 2Z"
+          stroke="#4A90A4"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
+        <path
+          d="M9 7.5C9 6 10.3 5 12 5C13.7 5 15 6 15 7.5"
+          stroke="#4A90A4"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+        />
       </svg>
-      <span className="text-lg font-bold text-foreground">СмартФлоу</span>
+      <span className="text-lg font-bold text-foreground">ОртоМастер</span>
     </div>
   )
 }

@@ -9,15 +9,15 @@ export function HeroSection7() {
         <div className="flex gap-12 lg:gap-16">
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8">
             <h1 id="hero-heading" className="text-foreground text-3xl lg:text-5xl font-bold flex-1">
-              Работай умнее, а не больше со <span className="text-primary">СмарФлоу</span>
+              Ортопедические изделия, созданные <span className="text-primary">лично для вас</span>
             </h1>
             <div className="flex-1 w-full flex flex-col gap-8">
               <p className="text-muted-foreground text-base lg:text-lg">
-                Автоматизируй рабочие процессы, упрощай задачи и работай в команде без лишних усилий. Все инструменты в одной платформе для максимальной продуктивности.
+                Индивидуальный подход к каждому клиенту: стельки, стельки-супинаторы, ортезы и другие изделия, изготовленные по вашим меркам. Забудьте о боли — почувствуйте разницу с первого шага.
               </p>
 
               <div className="flex flex-col lg:flex-row gap-3">
-                <Button>Попробовать бесплатно</Button>
+                <Button>Заказать изделие</Button>
                 <Button variant="ghost">
                   Узнать больше
                   <ArrowRight className="ml-2" />
@@ -29,8 +29,8 @@ export function HeroSection7() {
         <div className="w-full overflow-hidden rounded-xl border bg-background shadow-xl">
           <AspectRatio ratio={16 / 9}>
             <img
-              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero%20image-BfDDyqA7gEJi5nCcYfKEbZOJR8pYrr.png"
-              alt="Интерфейс СмартФлоу со статистикой заказов и метриками доходов"
+              src="/placeholder.svg"
+              alt="Индивидуальные ортопедические изделия на заказ"
               className="object-cover w-full h-full"
             />
           </AspectRatio>
