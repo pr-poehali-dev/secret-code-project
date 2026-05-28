@@ -53,9 +53,9 @@ export function Footer2() {
           <div className="w-full overflow-hidden rounded-xl border">
             <iframe
               title="Карта ОртоЦентр"
-              src="https://yandex.ru/map-widget/v1/?ll=37.766468%2C55.916668&z=17&pt=37.766468%2C55.916668%2Cpm2rdm&text=%D0%9C%D1%8B%D1%82%D0%B8%D1%89%D0%B8%2C%20%D1%83%D0%BB.%20%D0%9A%D0%B0%D1%80%D0%BB%D0%B0%20%D0%9C%D0%B0%D1%80%D0%BA%D1%81%D0%B0%2C%202&l=map"
+              src="https://yandex.ru/map-widget/v1/?ll=37.766468%2C55.916668&z=15&pt=37.766468%2C55.916668%2Cpm2rdm&text=%D0%9C%D1%8B%D1%82%D0%B8%D1%89%D0%B8%2C%20%D1%83%D0%BB.%20%D0%9A%D0%B0%D1%80%D0%BB%D0%B0%20%D0%9C%D0%B0%D1%80%D0%BA%D1%81%D0%B0%2C%202&l=map"
               width="100%"
-              height="300"
+              height="400"
               frameBorder="0"
               allowFullScreen
               className="block"

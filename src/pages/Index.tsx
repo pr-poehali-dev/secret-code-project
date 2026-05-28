@@ -6,6 +6,7 @@ import { ProductsSection } from "@/components/ProductsSection"
 import { GalleryCarousel } from "@/components/GalleryCarousel"
 import { TestimonialsSection5 } from "@/components/TestimonialsSection5"
 import { TsrBanner } from "@/components/TsrBanner"
+import { SpecialistsSection } from "@/components/SpecialistsSection"
 import { PricingSection4 } from "@/components/PricingSection4"
 import { LeadForm } from "@/components/LeadForm"
 import { FaqSection1 } from "@/components/FaqSection1"
@@ -25,6 +26,7 @@ const Index = () => {
       <section className="py-6 md:py-8 bg-background">
         <TsrBanner />
       </section>
+      <SpecialistsSection />
       <PricingSection4 />
       <LeadForm />
       <FaqSection1 />
