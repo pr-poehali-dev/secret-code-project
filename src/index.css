@@ -9,25 +9,25 @@ html {
 /* Default */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 215 25% 18%;
+    --background: 60 30% 98%;
+    --foreground: 30 20% 15%;
     --card: 0 0% 100%;
-    --card-foreground: 215 25% 18%;
+    --card-foreground: 30 20% 15%;
     --popover: 0 0% 100%;
-    --popover-foreground: 215 25% 18%;
-    --primary: 196 70% 40%;
+    --popover-foreground: 30 20% 15%;
+    --primary: 142 45% 42%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 196 40% 92%;
-    --secondary-foreground: 196 70% 25%;
-    --muted: 210 20% 96%;
-    --muted-foreground: 215 15% 48%;
-    --accent: 196 40% 92%;
-    --accent-foreground: 196 70% 25%;
+    --secondary: 32 90% 92%;
+    --secondary-foreground: 32 60% 25%;
+    --muted: 80 20% 94%;
+    --muted-foreground: 30 15% 42%;
+    --accent: 32 85% 88%;
+    --accent-foreground: 32 60% 22%;
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 86% 97%;
-    --border: 214 20% 88%;
-    --input: 214 20% 88%;
-    --ring: 196 70% 40%;
+    --border: 80 15% 86%;
+    --input: 80 15% 86%;
+    --ring: 142 45% 42%;
     --radius: 0.75rem;
     --chart-1: 173 58% 39%;
     --chart-2: 12 76% 61%;
@@ -82,7 +82,7 @@ html {
 }
 
 .pattern-1 {
-  background-image: url("data:image/svg+xml,%3Csvg width='140' height='16' viewBox='0 0 140 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_4133_10133)'%3E%3Cpath d='M-0.0390625 44C16.7069 44 23.8369 34.61 32.6009 24.676C41.5709 14.516 51.4569 4 70.0009 4C88.5449 4 98.4309 14.516 107.401 24.676C116.165 34.61 123.295 44 140.041 44M-0.0390625 28.004C16.7069 28 23.8369 18.612 32.6009 8.678C41.5709 -1.484 51.4569 -12 70.0009 -12C88.5449 -12 98.4309 -1.484 107.401 8.678C116.165 18.612 123.295 28 140.041 28.006M140.001 12.008C123.255 12.006 116.165 2.612 107.401 -7.322C98.4309 -17.484 88.5449 -28 70.0009 -28C51.4569 -28 41.5709 -17.484 32.6009 -7.322C23.8369 2.612 16.7069 12 -0.0390625 12.004' stroke-opacity='0.08' stroke='%231a7a99'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_4133_10133'%3E%3Crect width='140' height='16' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='140' height='16' viewBox='0 0 140 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-path='url(%23clip0_4133_10133)'%3E%3Cpath d='M-0.0390625 44C16.7069 44 23.8369 34.61 32.6009 24.676C41.5709 14.516 51.4569 4 70.0009 4C88.5449 4 98.4309 14.516 107.401 24.676C116.165 34.61 123.295 44 140.041 44M-0.0390625 28.004C16.7069 28 23.8369 18.612 32.6009 8.678C41.5709 -1.484 51.4569 -12 70.0009 -12C88.5449 -12 98.4309 -1.484 107.401 8.678C116.165 18.612 123.295 28 140.041 28.006M140.001 12.008C123.255 12.006 116.165 2.612 107.401 -7.322C98.4309 -17.484 88.5449 -28 70.0009 -28C51.4569 -28 41.5709 -17.484 32.6009 -7.322C23.8369 2.612 16.7069 12 -0.0390625 12.004' stroke-opacity='0.1' stroke='%233d9a5c'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_4133_10133'%3E%3Crect width='140' height='16' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
   background-repeat: repeat;
   width: 100%;
   height: 100%;
