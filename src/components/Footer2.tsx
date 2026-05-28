@@ -82,13 +82,13 @@ export function Footer2() {
               className="flex flex-col md:flex-row items-center gap-6 md:gap-8 order-1 md:order-2"
               aria-label="Юридические ссылки"
             >
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
                 Политика конфиденциальности
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/terms" className="text-muted-foreground hover:text-foreground transition-colors">
                 Условия использования
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/cookies" className="text-muted-foreground hover:text-foreground transition-colors">
                 Настройки cookies
               </a>
             </nav>
