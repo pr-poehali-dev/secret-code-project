@@ -50,6 +50,18 @@ export function Footer2() {
             </nav>
           </div>
 
+          <div className="w-full overflow-hidden rounded-xl border">
+            <iframe
+              title="Карта ОртоЦентр"
+              src="https://yandex.ru/map-widget/v1/?ll=37.739&spn=0.02,0.02&z=16&pt=37.739,55.9118,pm2rdm&text=%D0%9C%D1%8B%D1%82%D0%B8%D1%89%D0%B8%2C%20%D1%83%D0%BB.%20%D0%9A%D0%B0%D1%80%D0%BB%D0%B0%20%D0%9C%D0%B0%D1%80%D0%BA%D1%81%D0%B0%2C%202"
+              width="100%"
+              height="300"
+              frameBorder="0"
+              allowFullScreen
+              className="block"
+            />
+          </div>
+
           <Separator role="presentation" />
 
           <div className="flex flex-col gap-2 text-xs text-muted-foreground">

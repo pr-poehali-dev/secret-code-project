@@ -12,12 +12,27 @@ const MENU_ITEMS = [
 
 interface NavMenuItemsProps {
   className?: string
+  onItemClick?: () => void
 }
 
-const NavMenuItems = ({ className }: NavMenuItemsProps) => (
+const NavMenuItems = ({ className, onItemClick }: NavMenuItemsProps) => (
   <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
     {MENU_ITEMS.map(({ label, href }) => (
-      <a key={label} href={href}>
+      <a
+        key={label}
+        href={href}
+        onClick={(e) => {
+          e.preventDefault()
+          onItemClick?.()
+          const id = href.replace("#", "")
+          const el = document.getElementById(id)
+          if (el) {
+            const offset = 72
+            const top = el.getBoundingClientRect().top + window.scrollY - offset
+            window.scrollTo({ top, behavior: "smooth" })
+          }
+        }}
+      >
         <Button variant="ghost" className="w-full md:w-auto">
           {label}
         </Button>
@@ -29,6 +44,7 @@ const NavMenuItems = ({ className }: NavMenuItemsProps) => (
 export function LpNavbar1() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const closeMenu = () => setIsMenuOpen(false)
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
 
   return (
@@ -59,8 +75,8 @@ export function LpNavbar1() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden flex flex-col gap-5 w-full justify-end pb-2.5">
-            <NavMenuItems />
-            <a href="tel:+79055021502">
+            <NavMenuItems onItemClick={closeMenu} />
+            <a href="tel:+79055021502" onClick={closeMenu}>
               <Button className="w-full">Записаться</Button>
             </a>
           </div>
