@@ -7,6 +7,7 @@ import { GalleryCarousel } from "@/components/GalleryCarousel"
 import { TestimonialsSection5 } from "@/components/TestimonialsSection5"
 import { TsrBanner } from "@/components/TsrBanner"
 import { PricingSection4 } from "@/components/PricingSection4"
+import { LeadForm } from "@/components/LeadForm"
 import { FaqSection1 } from "@/components/FaqSection1"
 import { Footer2 } from "@/components/Footer2"
 import { CookieBanner } from "@/components/CookieBanner"
@@ -25,6 +26,7 @@ const Index = () => {
         <TsrBanner />
       </section>
       <PricingSection4 />
+      <LeadForm />
       <FaqSection1 />
       <Footer2 />
       <CookieBanner />

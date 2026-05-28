@@ -5,55 +5,63 @@ import Icon from "@/components/ui/icon"
 function TsrModal({ onClose }: { onClose: () => void }) {
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+      className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50"
       onClick={onClose}
     >
       <div
-        className="bg-card rounded-2xl shadow-2xl max-w-lg w-full p-7 flex flex-col gap-5 relative"
+        className="bg-card w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl shadow-2xl flex flex-col max-h-[90dvh]"
         onClick={(e) => e.stopPropagation()}
       >
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors"
-          aria-label="Закрыть"
-        >
-          <Icon name="X" size={20} />
-        </button>
-
-        <div className="flex items-center gap-3">
-          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/15 shrink-0">
-            <Icon name="CreditCard" size={20} className="text-primary" />
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-border shrink-0">
+          <div className="flex items-center gap-3">
+            <div className="flex items-center justify-center w-9 h-9 rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #ff4e00, #e53935)" }}>
+              <Icon name="CreditCard" size={18} className="text-white" />
+            </div>
+            <h2 className="text-base font-bold text-foreground leading-tight">Оплата по сертификату ТСР</h2>
           </div>
-          <h2 className="text-lg font-bold text-foreground">Оплата по электронному сертификату ТСР</h2>
+          <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition-colors ml-3 shrink-0" aria-label="Закрыть">
+            <Icon name="X" size={20} />
+          </button>
         </div>
 
-        <div className="flex flex-col gap-4 text-sm text-muted-foreground leading-relaxed">
+        <div className="overflow-y-auto flex-1 px-6 py-5 flex flex-col gap-4 text-sm text-muted-foreground leading-relaxed">
           <p>
             Мы принимаем оплату ортоаппаратов через <strong className="text-foreground">электронные сертификаты ТСР</strong> — технических средств реабилитации в рамках государственной программы обеспечения инвалидов.
           </p>
 
           <div className="flex flex-col gap-3">
             <p className="font-semibold text-foreground">Как происходит оплата:</p>
-            <ol className="flex flex-col gap-2 list-decimal list-inside">
-              <li>Вы заказываете изделие и согласовываете итоговую стоимость с нашим специалистом.</li>
-              <li>Мы формируем счёт через систему <strong className="text-foreground">PayKeeper</strong> и отправляем вам ссылку на оплату на электронную почту.</li>
-              <li>Вы переходите по ссылке и оплачиваете заказ средствами электронного сертификата ТСР — без наличных и банковских карт.</li>
-              <li>После подтверждения оплаты мы приступаем к изготовлению изделия.</li>
+            <ol className="flex flex-col gap-3 list-none p-0 m-0">
+              {[
+                "Вы заказываете изделие и согласовываете итоговую стоимость с нашим специалистом.",
+                "Мы формируем счёт через PayKeeper и отправляем вам ссылку на оплату на электронную почту.",
+                "Вы переходите по ссылке и оплачиваете заказ средствами электронного сертификата ТСР — без наличных и банковских карт.",
+                "После подтверждения оплаты мы приступаем к изготовлению изделия.",
+              ].map((step, i) => (
+                <li key={i} className="flex gap-3 items-start">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full text-white text-xs font-bold shrink-0 mt-0.5" style={{ background: "linear-gradient(135deg, #ff4e00, #e53935)" }}>
+                    {i + 1}
+                  </span>
+                  <span>{step}</span>
+                </li>
+              ))}
             </ol>
           </div>
 
-          <div className="bg-muted rounded-xl p-4 flex flex-col gap-1">
-            <p className="font-semibold text-foreground text-xs uppercase tracking-wide">Важно</p>
-            <p>Для оплаты по сертификату ТСР необходимо иметь действующий электронный сертификат, оформленный через Фонд социального страхования (СФР). Уточните наличие и номинал у вашего куратора ФСС.</p>
+          <div className="bg-muted rounded-xl p-4">
+            <p className="font-semibold text-foreground text-xs uppercase tracking-wide mb-2">Важно</p>
+            <p>Для оплаты необходим действующий электронный сертификат ТСР, оформленный через Социальный фонд России (СФР). Уточните наличие и номинал у вашего куратора СФР.</p>
           </div>
 
           <p>
-            Остались вопросы? Позвоните нам:{" "}
-            <a href="tel:+79055021502" className="text-primary font-semibold">+7 905 502-15-02</a>
+            Остались вопросы? Позвоните:{" "}
+            <a href="tel:+79055021502" className="font-semibold" style={{ color: "#e53935" }}>+7 905 502-15-02</a>
           </p>
         </div>
 
-        <Button onClick={onClose} className="w-full mt-1">Понятно</Button>
+        <div className="px-6 pb-6 pt-4 border-t border-border shrink-0">
+          <Button onClick={onClose} className="w-full">Понятно</Button>
+        </div>
       </div>
     </div>
   )
@@ -66,12 +74,12 @@ export function TsrBanner() {
     <>
       <div className="bg-primary/10 border border-primary/20 rounded-xl px-6 py-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 container mx-auto">
         <div className="flex items-center gap-3 shrink-0">
-          <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/20 shrink-0">
-            <Icon name="CreditCard" size={20} className="text-primary" />
+          <div className="flex items-center justify-center w-10 h-10 rounded-full shrink-0" style={{ background: "linear-gradient(135deg, #ff4e00, #e53935)" }}>
+            <Icon name="CreditCard" size={20} className="text-white" />
           </div>
-          <div className="flex items-center gap-2 bg-white rounded-lg px-3 py-1.5 border border-border shadow-sm">
-            <span className="text-xs font-bold tracking-tight text-foreground">Pay</span>
-            <span className="text-xs font-bold tracking-tight text-primary">Keeper</span>
+          <div className="flex items-center gap-0.5 bg-white rounded-lg px-3 py-1.5 border shadow-sm">
+            <span className="font-bold text-sm" style={{ color: "#e53935" }}>Pay</span>
+            <span className="font-bold text-sm" style={{ color: "#ff4e00" }}>keeper</span>
           </div>
         </div>
         <div className="flex-1 flex flex-col sm:flex-row sm:items-center gap-3">
@@ -81,7 +89,8 @@ export function TsrBanner() {
           </p>
           <button
             onClick={() => setOpen(true)}
-            className="text-sm text-primary font-semibold underline hover:no-underline shrink-0 text-left sm:text-right"
+            className="text-sm font-semibold underline hover:no-underline shrink-0 text-left sm:text-right whitespace-nowrap"
+            style={{ color: "#e53935" }}
           >
             Как это работает?
           </button>

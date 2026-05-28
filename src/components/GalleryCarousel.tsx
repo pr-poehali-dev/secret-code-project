@@ -1,13 +1,29 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const images = [
   {
+    src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/13c65837-cf03-48d1-bed6-aef79c9622cd.jpg",
+    alt: "Туторы на голеностоп — пара красных",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/4a7b8f11-3cb2-44b0-8530-e8f53965d44c.jpg",
+    alt: "Туторы синий и с принтом",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/d521ff26-2eec-4036-8e26-020098014db4.jpg",
+    alt: "Аппарат на всю ногу с принтом бабочек",
+  },
+  {
+    src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/e09ebddf-2dad-4590-9e2b-acd0bea89a38.jpg",
+    alt: "Тутор сбоку — синий и с принтом",
+  },
+  {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/047d72e4-b48b-4d15-a0d0-f313df739a94.jpg",
-    alt: "Ребёнок с ДЦП в ортезах на прогулке",
+    alt: "Ребёнок с ДЦП в ортезах",
   },
   {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/d2cca491-d9be-4758-8a7b-9e087988cacf.jpg",
-    alt: "Индивидуальные туторы на голеностоп для ребёнка",
+    alt: "Яркие туторы на ногах ребёнка",
   },
   {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/98e2bb84-87e6-4fcf-9765-fa2018b8cc82.jpg",
@@ -15,7 +31,7 @@ const images = [
   },
   {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/e032dbc5-950e-416c-9dd9-f9a34f92c0ce.jpg",
-    alt: "Аппарат на всю ногу с узором для ребёнка",
+    alt: "Аппарат на всю ногу с узором",
   },
   {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/b48a4408-7648-4e24-a523-953e1cac576c.jpg",
@@ -23,28 +39,33 @@ const images = [
   },
   {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/3dd3617d-5daf-4218-9dea-42a0faaf677a.jpg",
-    alt: "Яркие туторы на голеностоп оранжевые и синие",
+    alt: "Оранжево-синие туторы",
   },
   {
     src: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/6a5d7d34-554f-41a1-8ce1-303aaa26fbb1.jpg",
-    alt: "Первые шаги ребёнка в ортопедических опорах",
+    alt: "Первые шаги ребёнка в опорах",
   },
 ]
 
 export function GalleryCarousel() {
   const [current, setCurrent] = useState(0)
-  const [fading, setFading] = useState(false)
+  const [opacity, setOpacity] = useState(1)
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null)
+
+  const goTo = (index: number) => {
+    setOpacity(0)
+    setTimeout(() => {
+      setCurrent(index)
+      setOpacity(1)
+    }, 400)
+  }
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setFading(true)
-      setTimeout(() => {
-        setCurrent((prev) => (prev + 1) % images.length)
-        setFading(false)
-      }, 500)
+    timerRef.current = setInterval(() => {
+      goTo((current + 1) % images.length)
     }, 3000)
-    return () => clearInterval(timer)
-  }, [])
+    return () => { if (timerRef.current) clearInterval(timerRef.current) }
+  }, [current])
 
   return (
     <section className="bg-muted py-16 md:py-24">
@@ -57,26 +78,41 @@ export function GalleryCarousel() {
           </p>
         </div>
 
-        <div className="relative w-full max-w-3xl mx-auto">
-          <div className="overflow-hidden rounded-2xl border shadow-md aspect-[16/9] bg-card">
+        <div className="w-full max-w-3xl mx-auto flex flex-col gap-5">
+          <div
+            className="overflow-hidden rounded-2xl border shadow-md bg-card"
+            style={{ aspectRatio: "16/9" }}
+          >
             <img
+              key={current}
               src={images[current].src}
               alt={images[current].alt}
-              className="w-full h-full object-cover transition-opacity duration-500"
-              style={{ opacity: fading ? 0 : 1 }}
+              style={{
+                opacity,
+                transition: "opacity 0.4s ease",
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
+              }}
             />
           </div>
 
-          <div className="flex justify-center gap-2 mt-5">
+          <div className="flex justify-center items-center gap-2 flex-wrap">
             {images.map((_, i) => (
               <button
                 key={i}
-                onClick={() => { setFading(true); setTimeout(() => { setCurrent(i); setFading(false) }, 400) }}
-                className={`rounded-full transition-all duration-300 ${
-                  i === current
-                    ? "w-6 h-2.5 bg-primary"
-                    : "w-2.5 h-2.5 bg-border hover:bg-muted-foreground"
-                }`}
+                onClick={() => goTo(i)}
+                style={{
+                  width: i === current ? 24 : 10,
+                  height: 10,
+                  borderRadius: 999,
+                  background: i === current ? "var(--primary)" : "var(--border)",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "all 0.3s ease",
+                  padding: 0,
+                }}
                 aria-label={`Фото ${i + 1}`}
               />
             ))}
