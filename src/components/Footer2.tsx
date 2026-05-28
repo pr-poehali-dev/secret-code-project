@@ -32,19 +32,19 @@ export function Footer2() {
               className="flex flex-col md:flex-row items-center lg:items-start gap-6 md:gap-8 text-center lg:text-left"
               aria-label="Навигация в подвале"
             >
-              <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/" className="text-muted-foreground hover:text-foreground transition-colors">
                 Главная
               </a>
-              <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#features" className="text-muted-foreground hover:text-foreground transition-colors">
                 О нас
               </a>
               <a href="tel:+79055021502" className="text-muted-foreground hover:text-foreground transition-colors">
                 Контакты
               </a>
-              <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#pricing" className="text-muted-foreground hover:text-foreground transition-colors">
                 Тарифы
               </a>
-              <a href="#faq" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#faq" className="text-muted-foreground hover:text-foreground transition-colors">
                 Вопросы
               </a>
             </nav>

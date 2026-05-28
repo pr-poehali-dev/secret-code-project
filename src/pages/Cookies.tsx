@@ -1,7 +1,13 @@
+import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 
 export default function Cookies() {
+  useSeo({
+    title: "Настройки cookies — ОртоЦентр",
+    description: "Информация об использовании файлов cookie на сайте ОртоЦентр. Какие cookies мы используем и как ими управлять.",
+    canonical: "https://ortocentr.ru/cookies",
+  })
   return (
     <main>
       <LpNavbar1 />

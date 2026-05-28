@@ -1,7 +1,13 @@
+import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 
 export default function Terms() {
+  useSeo({
+    title: "Условия использования — ОртоЦентр",
+    description: "Условия использования сайта ОртоЦентр. Порядок оказания услуг по изготовлению ортопедических изделий, оплата, гарантии и возврат. ИП Тамбовцев А.С.",
+    canonical: "https://ortocentr.ru/terms",
+  })
   return (
     <main>
       <LpNavbar1 />

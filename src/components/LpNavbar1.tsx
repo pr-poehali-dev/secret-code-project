@@ -2,6 +2,7 @@ import { Logo } from "./Logo"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
+import { useLocation } from "react-router-dom"
 
 const MENU_ITEMS = [
   { label: "Возможности", href: "#features" },
@@ -13,36 +14,50 @@ const MENU_ITEMS = [
 interface NavMenuItemsProps {
   className?: string
   onItemClick?: () => void
+  isHome: boolean
 }
 
-const NavMenuItems = ({ className, onItemClick }: NavMenuItemsProps) => (
+const NavMenuItems = ({ className, onItemClick, isHome }: NavMenuItemsProps) => (
   <div className={`flex flex-col md:flex-row gap-1 ${className ?? ""}`}>
-    {MENU_ITEMS.map(({ label, href }) => (
-      <a
-        key={label}
-        href={href}
-        onClick={(e) => {
-          e.preventDefault()
-          onItemClick?.()
-          const id = href.replace("#", "")
-          const el = document.getElementById(id)
-          if (el) {
-            const offset = 72
-            const top = el.getBoundingClientRect().top + window.scrollY - offset
-            window.scrollTo({ top, behavior: "smooth" })
-          }
-        }}
-      >
-        <Button variant="ghost" className="w-full md:w-auto">
-          {label}
-        </Button>
-      </a>
-    ))}
+    {MENU_ITEMS.map(({ label, href }) => {
+      if (isHome) {
+        return (
+          <a
+            key={label}
+            href={href}
+            onClick={(e) => {
+              e.preventDefault()
+              onItemClick?.()
+              const id = href.replace("#", "")
+              const el = document.getElementById(id)
+              if (el) {
+                const offset = 72
+                const top = el.getBoundingClientRect().top + window.scrollY - offset
+                window.scrollTo({ top, behavior: "smooth" })
+              }
+            }}
+          >
+            <Button variant="ghost" className="w-full md:w-auto">
+              {label}
+            </Button>
+          </a>
+        )
+      }
+      return (
+        <a key={label} href={`/${href}`} onClick={onItemClick}>
+          <Button variant="ghost" className="w-full md:w-auto">
+            {label}
+          </Button>
+        </a>
+      )
+    })}
   </div>
 )
 
 export function LpNavbar1() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const location = useLocation()
+  const isHome = location.pathname === "/"
 
   const closeMenu = () => setIsMenuOpen(false)
   const toggleMenu = () => setIsMenuOpen((prev) => !prev)
@@ -66,7 +81,7 @@ export function LpNavbar1() {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-row gap-5 w-full justify-end">
-          <NavMenuItems />
+          <NavMenuItems isHome={isHome} />
           <a href="tel:+79055021502">
             <Button>Записаться</Button>
           </a>
@@ -75,7 +90,7 @@ export function LpNavbar1() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden flex flex-col gap-5 w-full justify-end pb-2.5">
-            <NavMenuItems onItemClick={closeMenu} />
+            <NavMenuItems isHome={isHome} onItemClick={closeMenu} />
             <a href="tel:+79055021502" onClick={closeMenu}>
               <Button className="w-full">Записаться</Button>
             </a>
