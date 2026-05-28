@@ -13,7 +13,7 @@ const plans = [
       { name: "Стандартные ортопедические стельки", tooltip: "Стельки из EVA по индивидуальным меркам" },
       { name: "Инструкция по применению", tooltip: "Рекомендации по носке и уходу за изделием" },
     ],
-    price: 3900,
+    price: 39000,
     variant: "secondary",
   },
   {
@@ -26,7 +26,7 @@ const plans = [
       { name: "Коррекция под конкретный диагноз", tooltip: "Учитываем плоскостопие, вальгус, диабетическую стопу и др." },
       { name: "Повторная коррекция через 1 месяц", tooltip: "Бесплатная подстройка изделия после периода адаптации" },
     ],
-    price: 7900,
+    price: 79000,
     variant: "default",
   },
   {
@@ -38,7 +38,7 @@ const plans = [
       { name: "3D-сканирование стопы", tooltip: "Точная цифровая модель для идеальной посадки" },
       { name: "Сопровождение на всём курсе", tooltip: "Поддержка и коррекция изделия в течение 6 месяцев" },
     ],
-    price: 18900,
+    price: 189000,
     variant: "secondary",
   },
 ]
@@ -74,9 +74,11 @@ export function PricingSection4() {
                     </span>
                   </div>
 
-                  <Button variant={index === 2 ? "secondary" : "default"} className="w-full">
-                    Заказать
-                  </Button>
+                  <a href="tel:+79055021502" className="w-full">
+                    <Button variant={index === 2 ? "secondary" : "default"} className="w-full">
+                      Заказать
+                    </Button>
+                  </a>
                 </div>
 
                 <div className="space-y-4">

@@ -15,7 +15,7 @@ const steps = [
   {
     icon: "Package",
     title: "Получение изделия",
-    description: "Изготавливаем изделие в течение 3–7 дней и выдаём с инструкцией по применению.",
+    description: "Изготавливаем изделие от 20 дней и выдаём с инструкцией по применению.",
   },
 ]
 
@@ -47,7 +47,7 @@ export function FeatureSection3() {
           <div className="overflow-hidden rounded-xl border bg-background shadow-xl">
             <AspectRatio ratio={1 / 1}>
               <img
-                src="/placeholder.svg"
+                src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/07c53784-331f-454b-88e9-934f7d85737e.jpg"
                 alt="Процесс снятия мерок и изготовления ортопедических изделий"
                 className="object-cover w-full h-full"
               />

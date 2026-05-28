@@ -51,7 +51,7 @@ export function LpNavbar1() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-row gap-5 w-full justify-end">
           <NavMenuItems />
-          <a href="#">
+          <a href="tel:+79055021502">
             <Button>Записаться</Button>
           </a>
         </div>
@@ -60,7 +60,7 @@ export function LpNavbar1() {
         {isMenuOpen && (
           <div className="md:hidden flex flex-col gap-5 w-full justify-end pb-2.5">
             <NavMenuItems />
-            <a href="#">
+            <a href="tel:+79055021502">
               <Button className="w-full">Записаться</Button>
             </a>
           </div>

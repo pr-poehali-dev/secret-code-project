@@ -17,7 +17,9 @@ export function HeroSection7() {
               </p>
 
               <div className="flex flex-col lg:flex-row gap-3">
-                <Button>Заказать изделие</Button>
+                <a href="tel:+79055021502">
+                  <Button>Заказать изделие</Button>
+                </a>
                 <Button variant="ghost">
                   Узнать больше
                   <ArrowRight className="ml-2" />
@@ -29,7 +31,7 @@ export function HeroSection7() {
         <div className="w-full overflow-hidden rounded-xl border bg-background shadow-xl">
           <AspectRatio ratio={16 / 9}>
             <img
-              src="/placeholder.svg"
+              src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/142d7196-df59-42c1-95ca-a6c3301291fd.jpg"
               alt="Индивидуальные ортопедические изделия на заказ"
               className="object-cover w-full h-full"
             />
