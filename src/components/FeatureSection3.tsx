@@ -47,7 +47,7 @@ export function FeatureSection3() {
           <div className="overflow-hidden rounded-xl border bg-background shadow-xl">
             <AspectRatio ratio={1 / 1}>
               <img
-                src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/0c359a77-d871-4e12-87e2-b83bfc1ba1b1.jpg"
+                src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/457e83a7-2470-4d79-b5d9-0544bde34d0b.jpg"
                 alt="Индивидуальный ортез на заказ"
                 className="object-cover w-full h-full"
               />
