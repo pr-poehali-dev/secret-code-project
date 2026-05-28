@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { useSearchParams, Link } from "react-router-dom"
+import { useSearchParams } from "react-router-dom"
 import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
@@ -110,7 +110,7 @@ const adultCategories = [
 const SHOP_URL = "https://mdc-planet.ru"
 
 export default function Catalog() {
-  const [searchParams, setSearchParams] = useSearchParams()
+  const [searchParams] = useSearchParams()
   const initialTab = searchParams.get("tab") === "adult" ? "adult" : "child"
   const [tab, setTab] = useState<"child" | "adult">(initialTab)
 
@@ -121,8 +121,8 @@ export default function Catalog() {
   })
 
   useEffect(() => {
-    setSearchParams({ tab }, { replace: true })
-  }, [tab])
+    window.scrollTo({ top: 0, behavior: "instant" })
+  }, [])
 
   const categories = tab === "child" ? childCategories : adultCategories
 
@@ -167,7 +167,7 @@ export default function Catalog() {
             {categories.map((cat, i) => (
               <a
                 key={i}
-                href={`${SHOP_URL}/catalog/${cat.slug}`}
+                href={SHOP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-background border border-border rounded-2xl px-5 py-4 flex items-center gap-4 hover:border-primary/40 hover:shadow-md transition-all duration-200 group"

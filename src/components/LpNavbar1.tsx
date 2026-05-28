@@ -2,7 +2,7 @@ import { Logo } from "./Logo"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import { useLocation } from "react-router-dom"
+import { useLocation, Link } from "react-router-dom"
 
 const MENU_ITEMS = [
   { label: "Возможности", href: "#features" },
@@ -80,8 +80,11 @@ export function LpNavbar1() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex flex-row gap-5 w-full justify-end">
+        <div className="hidden md:flex flex-row gap-5 w-full justify-end items-center">
           <NavMenuItems isHome={isHome} />
+          <Link to="/catalog">
+            <Button variant="outline">Каталог</Button>
+          </Link>
           <a href="tel:+79055021502">
             <Button>Записаться</Button>
           </a>
@@ -91,6 +94,9 @@ export function LpNavbar1() {
         {isMenuOpen && (
           <div className="md:hidden flex flex-col gap-5 w-full justify-end pb-2.5">
             <NavMenuItems isHome={isHome} onItemClick={closeMenu} />
+            <Link to="/catalog" onClick={closeMenu}>
+              <Button variant="outline" className="w-full">Каталог</Button>
+            </Link>
             <a href="tel:+79055021502" onClick={closeMenu}>
               <Button className="w-full">Записаться</Button>
             </a>
