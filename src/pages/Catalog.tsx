@@ -74,6 +74,9 @@ export default function Catalog() {
                 to={`/catalog/${cat.slug}`}
                 className="bg-background border border-border rounded-2xl px-5 py-4 flex items-center gap-4 hover:border-primary/40 hover:shadow-md transition-all duration-200 group"
               >
+                <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/8 shrink-0 group-hover:bg-primary/15 transition-colors duration-200">
+                  <Icon name={cat.icon} size={20} className="text-primary" />
+                </div>
                 <div className="flex flex-col gap-0.5 flex-1 min-w-0">
                   <span className="text-foreground text-sm font-semibold leading-snug group-hover:text-primary transition-colors">
                     {cat.title}
@@ -82,7 +85,7 @@ export default function Catalog() {
                     {cat.description}
                   </span>
                 </div>
-                <Icon name="ChevronRight" size={16} className="text-muted-foreground shrink-0 group-hover:text-primary group-hover:translate-x-0.5 transition-all duration-200" />
+                <Icon name="ChevronRight" size={16} className="text-muted-foreground shrink-0 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
               </Link>
             ))}
           </div>

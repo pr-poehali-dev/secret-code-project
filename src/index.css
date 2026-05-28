@@ -53,6 +53,7 @@ html {
 
   body {
     @apply bg-background text-foreground;
+    -webkit-tap-highlight-color: transparent;
     font-family:
       var(--font-onest),
       ui-sans-serif,
@@ -69,6 +70,47 @@ html {
       "Segoe UI Emoji",
       "Segoe UI Symbol",
       "Noto Color Emoji";
+  }
+}
+
+/* Глобальные hover-анимации */
+@layer components {
+  /* Все кнопки — лёгкий подъём и масштаб */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    transition:
+      transform 0.15s ease,
+      box-shadow 0.15s ease,
+      opacity 0.15s ease;
+  }
+  button:not(:disabled):hover,
+  [role="button"]:not(:disabled):hover {
+    transform: translateY(-1px);
+  }
+  button:not(:disabled):active,
+  [role="button"]:not(:disabled):active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Ссылки внутри навигации и футера */
+  nav a {
+    transition:
+      color 0.15s ease,
+      opacity 0.15s ease;
+  }
+
+  /* Карточки-ссылки (каталог, баннеры) */
+  a.group {
+    transition:
+      border-color 0.2s ease,
+      box-shadow 0.2s ease,
+      transform 0.2s ease;
+  }
+  a.group:hover {
+    transform: translateY(-2px);
+  }
+  a.group:active {
+    transform: translateY(0);
   }
 }
 

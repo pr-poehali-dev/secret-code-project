@@ -10,6 +10,7 @@ export interface Category {
   title: string
   description: string
   tab: "child" | "adult"
+  icon: string
   products: Product[]
 }
 
@@ -17,8 +18,10 @@ export const catalogCategories: Category[] = [
   {
     slug: "detskie-kolyaski",
     tab: "child",
+    icon: "Baby",
     title: "Детские инвалидные коляски",
     description: "Специализированные коляски для детей с нарушениями опорно-двигательного аппарата. Подбираем модель под диагноз и параметры ребёнка.",
+
     products: [
       { id: "dk-1", name: "Кресло-коляска детское базовое", description: "Лёгкая складная коляска для детей от 3 лет. Регулируемые подлокотники и подножки, ширина сиденья 30–40 см." },
       { id: "dk-2", name: "Кресло-коляска с поддержкой осанки", description: "Анатомическое сиденье с боковыми упорами, подголовником и поясным ремнём. Подходит при сниженном мышечном тонусе." },
@@ -28,6 +31,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "kolyaski-dtsp",
     tab: "child",
+    icon: "HeartHandshake",
     title: "Коляски для детей с ДЦП",
     description: "Коляски с расширенной поддержкой позиционирования для детей с ДЦП. Устраняют патологические позы и обеспечивают правильное положение тела.",
     products: [
@@ -39,6 +43,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "vertikalizatory-deti",
     tab: "child",
+    icon: "PersonStanding",
     title: "Вертикализаторы для детей с ДЦП",
     description: "Оборудование для вертикализации — тренирует опорную функцию ног, улучшает кровообращение и работу внутренних органов.",
     products: [
@@ -50,6 +55,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "hodunki-deti",
     tab: "child",
+    icon: "Footprints",
     title: "Ходунки детские",
     description: "Реабилитационные ходунки для детей с нарушениями ходьбы. Помогают освоить навык самостоятельного передвижения.",
     products: [
@@ -61,6 +67,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "velosipedy",
     tab: "child",
+    icon: "Bike",
     title: "Реабилитационные велосипеды",
     description: "Трёхколёсные и специализированные велосипеды для двигательной реабилитации детей. Развивают координацию и силу ног.",
     products: [
@@ -72,6 +79,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "avtokresla-dtsp",
     tab: "child",
+    icon: "CarFront",
     title: "Автомобильные кресла для детей с ДЦП",
     description: "Специальные автокресла с расширенной поддержкой для безопасной перевозки детей с особыми потребностями.",
     products: [
@@ -82,6 +90,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "kupanie",
     tab: "child",
+    icon: "Waves",
     title: "Приспособления для купания инвалидов",
     description: "Стулья, носилки и поддерживающие системы для безопасного купания детей и взрослых с ограниченными возможностями.",
     products: [
@@ -93,6 +102,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "kresla-pozicionery",
     tab: "child",
+    icon: "Armchair",
     title: "Реабилитационные кресла, опоры для сидения, позиционеры",
     description: "Оборудование для правильного позиционирования ребёнка при сидении. Формируют физиологичную позу и предотвращают деформации.",
     products: [
@@ -104,6 +114,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "ruchnye-kolyaski",
     tab: "adult",
+    icon: "Accessibility",
     title: "Кресла-коляски с ручным приводом",
     description: "Активные и стандартные кресла-коляски для самостоятельного передвижения взрослых. Широкий выбор по ширине сиденья и весу.",
     products: [
@@ -116,6 +127,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "elektro-kolyaski",
     tab: "adult",
+    icon: "Zap",
     title: "Кресла-коляски с электроприводом",
     description: "Электрические коляски для людей с ограниченными возможностями рук и кистей. Управление джойстиком или альтернативными методами.",
     products: [
@@ -127,6 +139,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "pristavki",
     tab: "adult",
+    icon: "Plug",
     title: "Приставки для кресел-колясок",
     description: "Электроприставки превращают обычную коляску в электрическую. Простая установка без инструментов.",
     products: [
@@ -137,6 +150,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "skutery",
     tab: "adult",
+    icon: "Bike",
     title: "Электрические скутеры",
     description: "Трёх- и четырёхколёсные электроскутеры для пожилых и людей с ограниченной подвижностью. Для улицы и помещений.",
     products: [
@@ -148,6 +162,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "vertikalizatory-vzroslye",
     tab: "adult",
+    icon: "PersonStanding",
     title: "Вертикализаторы",
     description: "Медицинские вертикализаторы для взрослых пациентов. Применяются после инсульта, травм позвоночника и при неврологических заболеваниях.",
     products: [
@@ -159,6 +174,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "hodunki-vzroslye",
     tab: "adult",
+    icon: "Footprints",
     title: "Ходунки",
     description: "Опоры для ходьбы, роляторы и ходунки для взрослых. Обеспечивают безопасность при передвижении после операций и при неврологических нарушениях.",
     products: [
@@ -170,6 +186,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "krovati",
     tab: "adult",
+    icon: "BedDouble",
     title: "Медицинские кровати",
     description: "Функциональные кровати с регулировкой положения для ухода на дому и в стационаре. Облегчают уход и повышают комфорт пациента.",
     products: [
@@ -181,6 +198,7 @@ export const catalogCategories: Category[] = [
   {
     slug: "podyomniki",
     tab: "adult",
+    icon: "ArrowUpFromLine",
     title: "Подъёмники для инвалидов",
     description: "Мобильные и стационарные подъёмники для перемещения маломобильных пациентов. Снижают нагрузку на ухаживающий персонал.",
     products: [
