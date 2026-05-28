@@ -4,11 +4,15 @@ import Icon from "@/components/ui/icon"
 
 const products = [
   {
-    image: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/17b83a89-71cd-4b99-a4a1-32da10700d94.jpg",
+    images: [
+      "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/13c65837-cf03-48d1-bed6-aef79c9622cd.jpg",
+      "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/4a7b8f11-3cb2-44b0-8530-e8f53965d44c.jpg",
+      "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/e09ebddf-2dad-4590-9e2b-acd0bea89a38.jpg",
+    ],
     badge: "Голеностопный сустав",
     title: "Тутор на голеностоп",
     description:
-      "Жёсткое устройство, фиксирующее голеностопный сустав в заданном положении. Обеспечивает стабильность, предупреждает деформации и облегчает реабилитацию.",
+      "Жёсткое устройство, фиксирующее голеностопный сустав в заданном положении. Обеспечивает стабильность, предупреждает деформации и облегчает реабилитацию. Можно оформить в любом дизайне.",
     indications: [
       "Травмы голеностопного сустава",
       "Переломы лодыжки, разрывы связок",
@@ -23,11 +27,13 @@ const products = [
     materials: "Термопластики, текстиль с металлическими и пластиковыми вставками",
   },
   {
-    image: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/584a8c45-419c-424c-afb2-43493d796477.jpg",
+    images: [
+      "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/d521ff26-2eec-4036-8e26-020098014db4.jpg",
+    ],
     badge: "Вся нога",
     title: "Аппарат на всю ногу",
     description:
-      "Конструкция с шарнирами, задающая ноге движение по заданной траектории. Фиксирует, корректирует положение и разгружает всю ногу от бедра до стопы.",
+      "Конструкция с шарнирами, задающая ноге движение по заданной траектории. Фиксирует, корректирует положение и разгружает всю ногу от бедра до стопы. Изготавливается с учётом индивидуальных параметров.",
     indications: [
       "ДЦП, параличи и парезы мышц",
       "Низкий мышечный тонус, дистрофия",
@@ -44,6 +50,30 @@ const products = [
   },
 ]
 
+function ProductGallery({ images, title }: { images: string[]; title: string }) {
+  if (images.length === 1) {
+    return (
+      <div className="overflow-hidden rounded-xl border bg-muted shadow-sm aspect-[3/4]">
+        <img src={images[0]} alt={title} className="object-cover w-full h-full" />
+      </div>
+    )
+  }
+  return (
+    <div className="flex flex-col gap-3">
+      <div className="overflow-hidden rounded-xl border bg-muted shadow-sm aspect-[3/4]">
+        <img src={images[0]} alt={title} className="object-cover w-full h-full" />
+      </div>
+      <div className="grid grid-cols-2 gap-3">
+        {images.slice(1).map((src, i) => (
+          <div key={i} className="overflow-hidden rounded-xl border bg-muted shadow-sm aspect-square">
+            <img src={src} alt={`${title} ${i + 2}`} className="object-cover w-full h-full" />
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 export function ProductsSection() {
   return (
     <section className="bg-background py-16 md:py-24">
@@ -56,20 +86,14 @@ export function ProductsSection() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-20">
           {products.map((product, index) => (
             <div
               key={index}
               className={`flex flex-col lg:flex-row gap-10 items-start ${index % 2 === 1 ? "lg:flex-row-reverse" : ""}`}
             >
               <div className="flex-1 w-full">
-                <div className="overflow-hidden rounded-xl border bg-muted shadow-sm aspect-[4/3]">
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    className="object-cover w-full h-full"
-                  />
-                </div>
+                <ProductGallery images={product.images} title={product.title} />
               </div>
 
               <div className="flex-1 flex flex-col gap-6">
