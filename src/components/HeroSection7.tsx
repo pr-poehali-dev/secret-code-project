@@ -9,11 +9,11 @@ export function HeroSection7() {
         <div className="flex gap-12 lg:gap-16">
           <div className="flex flex-col lg:flex-row gap-4 md:gap-6 lg:gap-8">
             <h1 id="hero-heading" className="text-foreground text-3xl lg:text-5xl font-bold flex-1">
-              Ортопедические изделия, созданные <span className="text-primary">лично для вас</span>
+              Ортоаппараты для детей с ДЦП и <span className="text-primary">нарушениями ОПДА</span>
             </h1>
             <div className="flex-1 w-full flex flex-col gap-8">
               <p className="text-muted-foreground text-base lg:text-lg">
-                Индивидуальный подход к каждому клиенту: ортоаппараты, туторы, ортезы и другие изделия, изготовленные по вашим меркам. Забудьте о боли — почувствуйте разницу с первого шага.
+                Специализируемся на изготовлении индивидуальных ортоаппаратов, туторов и ортезов для детей с ДЦП и нарушениями опорно-двигательного аппарата. Каждое изделие создаётся под конкретного ребёнка с учётом его диагноза и анатомии.
               </p>
 
               <div className="flex flex-col lg:flex-row gap-3">

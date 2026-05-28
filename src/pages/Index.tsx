@@ -8,6 +8,7 @@ import { TsrBanner } from "@/components/TsrBanner"
 import { PricingSection4 } from "@/components/PricingSection4"
 import { FaqSection1 } from "@/components/FaqSection1"
 import { Footer2 } from "@/components/Footer2"
+import { CookieBanner } from "@/components/CookieBanner"
 
 const Index = () => {
   return (
@@ -24,6 +25,7 @@ const Index = () => {
       <PricingSection4 />
       <FaqSection1 />
       <Footer2 />
+      <CookieBanner />
     </main>
   )
 }
