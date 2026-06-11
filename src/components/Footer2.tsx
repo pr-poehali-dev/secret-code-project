@@ -2,6 +2,7 @@ import { Logo } from "./Logo"
 import { Separator } from "@/components/ui/separator"
 import Icon from "@/components/ui/icon"
 import { useAnchorNav } from "@/hooks/useAnchorNav"
+import { PaymentLogos } from "@/components/PaymentLogos"
 
 export function Footer2() {
   const goTo = useAnchorNav()
@@ -74,6 +75,13 @@ export function Footer2() {
             <p>ИП Тамбовцев Алексей Сергеевич &nbsp;·&nbsp; ИНН: 502982372818</p>
             <p>Банк: ООО «Банк Точка» &nbsp;·&nbsp; БИК: 044525104</p>
             <p>Р/с: 40802810920001005892 &nbsp;·&nbsp; К/с: 30101810745374525104</p>
+          </div>
+
+          <Separator role="presentation" />
+
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-xs text-muted-foreground">Принимаем к оплате:</p>
+            <PaymentLogos />
           </div>
 
           <Separator role="presentation" />
