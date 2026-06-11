@@ -44,6 +44,9 @@ export function Footer2() {
               <a href="/catalog" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
                 Каталог
               </a>
+              <a href="/articles" className="text-muted-foreground hover:text-foreground transition-colors">
+                Статьи
+              </a>
               <a href="tel:+79055021502" className="text-muted-foreground hover:text-foreground transition-colors">
                 Контакты
               </a>
