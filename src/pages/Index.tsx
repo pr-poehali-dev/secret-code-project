@@ -35,7 +35,8 @@ const Index = () => {
       <section className="py-6 md:py-8 bg-background">
         <TsrBanner />
       </section>
-      <SpecialistsSection />
+      {/* Временно скрыто, восстановим позже */}
+      {/* <SpecialistsSection /> */}
       <PricingSection4 />
       <LeadForm />
       <FaqSection1 />

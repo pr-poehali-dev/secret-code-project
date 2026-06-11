@@ -47,8 +47,8 @@ export default function ArticlePage() {
             <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">{article.title}</h1>
           </div>
 
-          <div className="flex items-center justify-center h-44 bg-primary/8 rounded-2xl">
-            <Icon name={article.icon} size={56} className="text-primary" />
+          <div className="h-52 md:h-64 rounded-2xl overflow-hidden">
+            <img src={article.cover} alt={article.title} className="w-full h-full object-cover" />
           </div>
 
           <article className="bg-background border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4">

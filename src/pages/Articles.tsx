@@ -42,8 +42,13 @@ export default function Articles() {
                 to={`/articles/${article.slug}`}
                 className="group bg-background border border-border rounded-2xl overflow-hidden flex flex-col hover:border-primary/40 hover:shadow-md transition-all duration-200"
               >
-                <div className="flex items-center justify-center h-36 bg-primary/8">
-                  <Icon name={article.icon} size={44} className="text-primary group-hover:scale-110 transition-transform duration-200" />
+                <div className="h-40 overflow-hidden">
+                  <img
+                    src={article.cover}
+                    alt={article.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="flex flex-col gap-2 p-5 flex-1">
                   <div className="flex items-center gap-3 text-xs text-muted-foreground">
