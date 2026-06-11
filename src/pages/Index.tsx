@@ -12,6 +12,7 @@ import { SpecialistsSection } from "@/components/SpecialistsSection"
 import { PricingSection4 } from "@/components/PricingSection4"
 import { LeadForm } from "@/components/LeadForm"
 import { FaqSection1 } from "@/components/FaqSection1"
+import { ArticlesSection } from "@/components/ArticlesSection"
 import { Footer2 } from "@/components/Footer2"
 import { CookieBanner } from "@/components/CookieBanner"
 
@@ -38,6 +39,7 @@ const Index = () => {
       <PricingSection4 />
       <LeadForm />
       <FaqSection1 />
+      <ArticlesSection />
       <Footer2 />
       <CookieBanner />
     </main>

@@ -82,6 +82,9 @@ export function LpNavbar1() {
         {/* Desktop Navigation */}
         <div className="hidden md:flex flex-row gap-5 w-full justify-end items-center">
           <NavMenuItems isHome={isHome} />
+          <Link to="/articles">
+            <Button variant="ghost">Статьи</Button>
+          </Link>
           <Link to="/catalog">
             <Button variant="outline">Каталог</Button>
           </Link>
@@ -94,6 +97,9 @@ export function LpNavbar1() {
         {isMenuOpen && (
           <div className="md:hidden flex flex-col gap-5 w-full justify-end pb-2.5">
             <NavMenuItems isHome={isHome} onItemClick={closeMenu} />
+            <Link to="/articles" onClick={closeMenu}>
+              <Button variant="ghost" className="w-full">Статьи</Button>
+            </Link>
             <Link to="/catalog" onClick={closeMenu}>
               <Button variant="outline" className="w-full">Каталог</Button>
             </Link>
