@@ -21,32 +21,37 @@ export function PaymentLogos() {
         </svg>
       </div>
 
-      {/* МИР */}
+      {/* МИР — текст как в официальном логотипе: М синий, И и Р зелёные */}
       <div className="flex items-center justify-center bg-white rounded-lg px-3 h-9 border border-border/60 min-w-[58px]">
-        <svg viewBox="0 0 48 18" height="15" xmlns="http://www.w3.org/2000/svg" aria-label="МИР">
+        <svg viewBox="0 0 52 20" height="15" xmlns="http://www.w3.org/2000/svg" aria-label="МИР">
           <defs>
-            <linearGradient id="mir-g" x1="0%" y1="0%" x2="100%" y2="0%">
+            <linearGradient id="mir-blue" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor="#1CAADC"/>
               <stop offset="100%" stopColor="#0070BA"/>
             </linearGradient>
           </defs>
-          <path d="M0 0H11C13.5 0 15.7 1.6 16.4 4L17.5 8H0V0Z" fill="url(#mir-g)"/>
-          <path d="M0 9.5H17.5V18H2C0.9 18 0 17.1 0 16V9.5Z" fill="#4DB45E"/>
-          <rect x="19.5" y="0" width="3" height="18" fill="#4DB45E"/>
-          <path d="M22.5 0L28.5 8.5V0H31.5V18H28.5L22.5 9.5V18H19.5V0" fill="#4DB45E"/>
-          <rect x="34" y="0" width="3" height="18" fill="url(#mir-g)"/>
-          <path d="M37 0H42C44.8 0 47 2.2 47 5C47 7.8 44.8 10 42 10H37V0Z" fill="url(#mir-g)"/>
+          {/* М — верхняя шапка */}
+          <path d="M0 0H12C14.8 0 17.2 1.8 18 4.5L19.2 9H0V0Z" fill="url(#mir-blue)"/>
+          {/* М — нижняя часть */}
+          <path d="M0 10.5H19.2V20H1.5C0.7 20 0 19.3 0 18.5V10.5Z" fill="#4DB45E"/>
+          {/* И */}
+          <rect x="21" y="0" width="3" height="20" fill="#4DB45E"/>
+          <rect x="30" y="0" width="3" height="20" fill="#4DB45E"/>
+          <path d="M24 0L30 10V0" fill="none" stroke="#4DB45E" strokeWidth="3" strokeLinejoin="round"/>
+          {/* Р */}
+          <rect x="35" y="0" width="3" height="20" fill="url(#mir-blue)"/>
+          <path d="M38 0H44C47.3 0 50 2.5 50 5.5C50 8.5 47.3 11 44 11H38V0Z" fill="url(#mir-blue)"/>
         </svg>
       </div>
 
-      {/* PayKeeper */}
-      <div className="flex items-center justify-center bg-white rounded-lg px-3 h-9 border border-border/60 gap-1.5">
-        <svg viewBox="0 0 16 16" height="18" xmlns="http://www.w3.org/2000/svg">
-          <rect width="16" height="16" rx="3" fill="#1D4ED8"/>
-          <path d="M3.5 4.5H8C9.7 4.5 11 5.6 11 7C11 8.4 9.7 9.5 8 9.5H5.5V11.5H3.5V4.5ZM5.5 7.8H7.7C8.4 7.8 9 7.5 9 7C9 6.5 8.4 6.2 7.7 6.2H5.5V7.8Z" fill="white"/>
-        </svg>
-        <span style={{ fontFamily: "Arial, sans-serif", fontSize: 12, fontWeight: 700, color: "#1D4ED8", letterSpacing: 0 }}>Pay</span>
-        <span style={{ fontFamily: "Arial, sans-serif", fontSize: 12, fontWeight: 400, color: "#334155" }}>Keeper</span>
+      {/* PayKeeper — официальный логотип */}
+      <div className="flex items-center justify-center bg-white rounded-lg px-3 h-9 border border-border/60">
+        <img
+          src="https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/bucket/3cc2e763-1aa7-4793-9c94-164dccd13495.png"
+          alt="PayKeeper"
+          height={28}
+          style={{ height: 28, width: "auto", objectFit: "contain" }}
+        />
       </div>
 
     </div>
