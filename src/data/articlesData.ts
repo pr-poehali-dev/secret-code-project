@@ -50,7 +50,7 @@ export const articles: Article[] = [
     date: "2 июня 2026",
     readTime: "5 мин",
     icon: "HeartHandshake",
-    cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/91077737-ad4a-4e65-b46d-59039ffac745.jpg",
+    cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/27b2ce02-8e85-496a-bcdd-437fbbc8fe0e.jpg",
     content: [
       { type: "paragraph", text: "Детский церебральный паралич требует комплексного подхода, в котором техническое оборудование играет важную роль наравне с занятиями ЛФК и работой со специалистами. Правильно подобранные средства реабилитации помогают формировать двигательные навыки и предотвращать вторичные деформации." },
       { type: "heading", text: "Вертикализаторы" },
@@ -99,7 +99,7 @@ export const articles: Article[] = [
     date: "10 июня 2026",
     readTime: "5 мин",
     icon: "Footprints",
-    cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/91077737-ad4a-4e65-b46d-59039ffac745.jpg",
+    cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/01d0a895-6d6f-44c1-bcf2-3a9502e4d7b9.jpg",
     content: [
       { type: "paragraph", text: "Ходунки и опоры возвращают человеку самостоятельность и уверенность при передвижении. Но эффективность и безопасность зависят от правильного выбора модели и корректной настройки. Разберём, на что обращать внимание." },
       { type: "heading", text: "Основные виды ходунков" },
