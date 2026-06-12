@@ -4,9 +4,11 @@ interface SeoProps {
   title: string
   description: string
   canonical?: string
+  keywords?: string
+  jsonLd?: object
 }
 
-export function useSeo({ title, description, canonical }: SeoProps) {
+export function useSeo({ title, description, canonical, keywords, jsonLd }: SeoProps) {
   useEffect(() => {
     document.title = title
 
@@ -17,6 +19,16 @@ export function useSeo({ title, description, canonical }: SeoProps) {
       document.head.appendChild(metaDesc)
     }
     metaDesc.content = description
+
+    if (keywords) {
+      let metaKeywords = document.querySelector<HTMLMetaElement>('meta[name="keywords"]')
+      if (!metaKeywords) {
+        metaKeywords = document.createElement("meta")
+        metaKeywords.name = "keywords"
+        document.head.appendChild(metaKeywords)
+      }
+      metaKeywords.content = keywords
+    }
 
     let metaOgTitle = document.querySelector<HTMLMetaElement>('meta[property="og:title"]')
     if (!metaOgTitle) {
@@ -43,5 +55,15 @@ export function useSeo({ title, description, canonical }: SeoProps) {
       }
       link.href = canonical
     }
-  }, [title, description, canonical])
+
+    const prevJsonLd = document.getElementById("page-jsonld")
+    if (prevJsonLd) prevJsonLd.remove()
+    if (jsonLd) {
+      const script = document.createElement("script")
+      script.type = "application/ld+json"
+      script.id = "page-jsonld"
+      script.text = JSON.stringify(jsonLd)
+      document.head.appendChild(script)
+    }
+  }, [title, description, canonical, keywords, jsonLd])
 }

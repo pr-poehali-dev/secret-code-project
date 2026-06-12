@@ -12,6 +12,7 @@ import Catalog from "./pages/Catalog";
 import CategoryPage from "./pages/CategoryPage";
 import Articles from "./pages/Articles";
 import ArticlePage from "./pages/ArticlePage";
+import TsrCertificate from "./pages/TsrCertificate";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/catalog/:slug" element={<CategoryPage />} />
           <Route path="/articles" element={<Articles />} />
           <Route path="/articles/:slug" element={<ArticlePage />} />
+          <Route path="/tsr-sertifikat" element={<TsrCertificate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
