@@ -40,7 +40,7 @@ export function FaqSection1() {
           </h1>
           <p className="text-muted-foreground">
             Мы собрали самые частые вопросы о наших изделиях. Не нашли ответ?{" "}
-            <a href="#" className="text-primary underline">
+            <a href="tel:+79055021502" className="text-primary underline">
               Свяжитесь с нами.
             </a>
           </p>

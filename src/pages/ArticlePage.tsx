@@ -32,7 +32,9 @@ export default function ArticlePage() {
         <div className="container mx-auto px-6 flex flex-col gap-8 max-w-2xl">
 
           <nav className="flex items-center gap-2 text-sm text-muted-foreground flex-wrap" aria-label="Навигация">
-            <Link to="/" className="hover:text-foreground transition-colors">Главная</Link>
+            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
+              <Icon name="Home" size={14} />Главная
+            </Link>
             <Icon name="ChevronRight" size={14} />
             <Link to="/articles" className="hover:text-foreground transition-colors">Статьи</Link>
             <Icon name="ChevronRight" size={14} />
@@ -54,7 +56,24 @@ export default function ArticlePage() {
           <article className="bg-background border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4">
             {article.content.map((block, i) => {
               if (block.type === "heading") {
-                return <h2 key={i} className="text-lg font-bold text-foreground mt-2">{block.text}</h2>
+                return (
+                  <h2 key={i} className="flex items-center gap-2.5 text-lg font-bold text-foreground mt-3">
+                    {block.icon && (
+                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 shrink-0">
+                        <Icon name={block.icon} size={18} className="text-primary" />
+                      </span>
+                    )}
+                    {block.text}
+                  </h2>
+                )
+              }
+              if (block.type === "callout") {
+                return (
+                  <div key={i} className="flex items-start gap-3 bg-primary/8 border border-primary/20 rounded-xl p-4">
+                    <Icon name={block.icon ?? "Info"} size={20} className="text-primary shrink-0 mt-0.5" />
+                    <p className="text-foreground text-[15px] leading-relaxed font-medium">{block.text}</p>
+                  </div>
+                )
               }
               if (block.type === "list") {
                 return (

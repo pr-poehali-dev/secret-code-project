@@ -31,7 +31,9 @@ export default function CategoryPage() {
 
           {/* Хлебные крошки */}
           <nav className="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Навигация">
-            <Link to="/" className="hover:text-foreground transition-colors">Главная</Link>
+            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
+              <Icon name="Home" size={14} />Главная
+            </Link>
             <Icon name="ChevronRight" size={14} />
             <Link to="/catalog" className="hover:text-foreground transition-colors">Каталог</Link>
             <Icon name="ChevronRight" size={14} />

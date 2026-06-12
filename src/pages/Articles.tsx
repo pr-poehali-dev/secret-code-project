@@ -25,7 +25,9 @@ export default function Articles() {
         <div className="container mx-auto px-6 flex flex-col gap-8 max-w-3xl">
 
           <nav className="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Навигация">
-            <Link to="/" className="hover:text-foreground transition-colors">Главная</Link>
+            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
+              <Icon name="Home" size={14} />Главная
+            </Link>
             <Icon name="ChevronRight" size={14} />
             <span className="text-foreground">Статьи</span>
           </nav>

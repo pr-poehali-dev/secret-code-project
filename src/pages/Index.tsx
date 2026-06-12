@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+import { useLocation } from "react-router-dom"
 import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { HeroSection7 } from "@/components/HeroSection7"
@@ -17,11 +19,26 @@ import { Footer2 } from "@/components/Footer2"
 import { CookieBanner } from "@/components/CookieBanner"
 
 const Index = () => {
+  const location = useLocation()
   useSeo({
     title: "ОртоЦентр — индивидуальные ортоаппараты и туторы в Мытищах",
     description: "Изготовление индивидуальных ортопедических аппаратов и туторов для детей с ДЦП и нарушениями ОПДА. Опыт более 25 лет. Мытищи, ул. Карла Маркса д.2. Тел: +7 905 502-15-02.",
     canonical: "https://ortocentr.ru/",
   })
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "")
+      const el = document.getElementById(id)
+      if (el) {
+        setTimeout(() => {
+          const top = el.getBoundingClientRect().top + window.scrollY - 72
+          window.scrollTo({ top, behavior: "smooth" })
+        }, 100)
+      }
+    }
+  }, [location])
+
   return (
     <main>
       <LpNavbar1 />
