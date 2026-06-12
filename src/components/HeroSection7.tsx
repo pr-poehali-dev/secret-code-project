@@ -20,10 +20,22 @@ export function HeroSection7() {
                 <a href="tel:+79055021502">
                   <Button>Заказать изделие</Button>
                 </a>
-                <Button variant="ghost">
-                  Узнать больше
-                  <ArrowRight className="ml-2" />
-                </Button>
+                <a
+                  href="#features"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    const el = document.getElementById("features")
+                    if (el) {
+                      const top = el.getBoundingClientRect().top + window.scrollY - 72
+                      window.scrollTo({ top, behavior: "smooth" })
+                    }
+                  }}
+                >
+                  <Button variant="ghost" className="w-full lg:w-auto">
+                    Узнать больше
+                    <ArrowRight className="ml-2" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
