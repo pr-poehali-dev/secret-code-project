@@ -6,7 +6,7 @@ export default function Terms() {
   useSeo({
     title: "Условия использования — ОртоЦентр",
     description: "Условия использования сайта ОртоЦентр. Порядок оказания услуг по изготовлению ортопедических изделий, оплата, гарантии и возврат. ИП Тамбовцев А.С.",
-    canonical: "https://ortocentr.ru/terms",
+    canonical: "https://orto.center/terms",
   })
   return (
     <main>

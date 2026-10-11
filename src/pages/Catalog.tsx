@@ -14,7 +14,7 @@ export default function Catalog() {
   useSeo({
     title: "Каталог реабилитационного оборудования — ОртоЦентр",
     description: "Каталог реабилитационного оборудования: детские и взрослые коляски, вертикализаторы, ходунки, электроскутеры, медицинские кровати. Мытищи.",
-    canonical: "https://ortocentr.ru/catalog",
+    canonical: "https://orto.center/catalog",
   })
 
   useEffect(() => {

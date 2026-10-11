@@ -13,7 +13,7 @@ export default function ArticlePage() {
   useSeo({
     title: article ? `${article.title} — ОртоЦентр` : "Статья — ОртоЦентр",
     description: article?.excerpt ?? "",
-    canonical: `https://ortocentr.ru/articles/${slug}`,
+    canonical: `https://orto.center/articles/${slug}`,
   })
 
   useEffect(() => {

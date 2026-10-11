@@ -10,7 +10,7 @@ export default function Articles() {
   useSeo({
     title: "Статьи о реабилитации — ОртоЦентр",
     description: "Полезные статьи о подборе реабилитационного оборудования: инвалидные коляски, реабилитация детей с ДЦП, вертикализаторы и ходунки.",
-    canonical: "https://ortocentr.ru/articles",
+    canonical: "https://orto.center/articles",
   })
 
   useEffect(() => {

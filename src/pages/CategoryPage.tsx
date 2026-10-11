@@ -13,7 +13,7 @@ export default function CategoryPage() {
   useSeo({
     title: category ? `${category.title} — ОртоЦентр` : "Категория — ОртоЦентр",
     description: category?.description ?? "",
-    canonical: `https://ortocentr.ru/catalog/${slug}`,
+    canonical: `https://orto.center/catalog/${slug}`,
   })
 
   useEffect(() => {

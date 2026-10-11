@@ -6,7 +6,7 @@ export default function Cookies() {
   useSeo({
     title: "Настройки cookies — ОртоЦентр",
     description: "Информация об использовании файлов cookie на сайте ОртоЦентр. Какие cookies мы используем и как ими управлять.",
-    canonical: "https://ortocentr.ru/cookies",
+    canonical: "https://orto.center/cookies",
   })
   return (
     <main>

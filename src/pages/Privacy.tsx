@@ -6,7 +6,7 @@ export default function Privacy() {
   useSeo({
     title: "Политика конфиденциальности — ОртоЦентр",
     description: "Политика конфиденциальности ОртоЦентр. Как мы собираем, храним и защищаем персональные данные пользователей. ИП Тамбовцев А.С., Мытищи.",
-    canonical: "https://ortocentr.ru/privacy",
+    canonical: "https://orto.center/privacy",
   })
   return (
     <main>

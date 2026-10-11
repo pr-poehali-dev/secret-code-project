@@ -10,4 +10,4 @@ Allow: /
 Disallow: /*?
 Clean-param: utm_source&utm_medium&utm_campaign&utm_content&utm_term&yclid&gclid&_openstat&from
 
-Sitemap: https://ortocentr.ru/sitemap.xml
+Sitemap: https://orto.center/sitemap.xml
