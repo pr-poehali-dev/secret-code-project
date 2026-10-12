@@ -13,7 +13,8 @@ import CategoryPage from "./pages/CategoryPage";
 import Articles from "./pages/Articles";
 import ArticlePage from "./pages/ArticlePage";
 import TsrCertificate from "./pages/TsrCertificate";
-import NotFound from "./pages/NotFound";
+import Page404 from "./pages/Page404";
+import { UrlNormalizer } from "./components/UrlNormalizer";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <UrlNormalizer />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/privacy" element={<Privacy />} />
@@ -34,7 +36,7 @@ const App = () => (
           <Route path="/articles/:slug" element={<ArticlePage />} />
           <Route path="/tsr-sertifikat" element={<TsrCertificate />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
+          <Route path="*" element={<Page404 />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

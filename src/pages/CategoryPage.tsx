@@ -1,9 +1,10 @@
-import { useParams, Link, Navigate } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useEffect } from "react"
 import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
+import Page404 from "@/pages/Page404"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { getCategoryBySlug } from "@/data/catalogData"
 
@@ -12,16 +13,17 @@ export default function CategoryPage() {
   const category = getCategoryBySlug(slug ?? "")
 
   useSeo({
-    title: category ? `${category.title} — ОртоЦентр` : "Категория — ОртоЦентр",
-    description: category?.description ?? "",
+    title: category ? `${category.title} — ОртоЦентр` : "Страница не найдена (404) — ОртоЦентр",
+    description: category?.description ?? "Такого раздела нет в каталоге ОртоЦентра.",
     canonical: `https://orto.center/catalog/${slug}`,
+    noindex: !category,
   })
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })
   }, [slug])
 
-  if (!category) return <Navigate to="/catalog" replace />
+  if (!category) return <Page404 />
 
   return (
     <main>

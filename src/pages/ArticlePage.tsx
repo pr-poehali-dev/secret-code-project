@@ -1,9 +1,10 @@
 import { useEffect, useMemo } from "react"
-import { useParams, Link, Navigate } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
+import Page404 from "@/pages/Page404"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { getArticleBySlug, getRelatedArticles, toIsoDate } from "@/data/articlesData"
 
@@ -34,17 +35,20 @@ export default function ArticlePage() {
   }, [article, url])
 
   useSeo({
-    title: article ? `${article.title} — ОртоЦентр` : "Статья — ОртоЦентр",
-    description: article?.excerpt ?? "",
+    title: article ? `${article.title} — ОртоЦентр` : "Страница не найдена (404) — ОртоЦентр",
+    description: article?.excerpt ?? "Такой статьи нет на сайте ОртоЦентра.",
     canonical: url,
     jsonLd,
+    noindex: !article,
+    image: article?.cover,
+    type: article ? "article" : "website",
   })
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })
   }, [slug])
 
-  if (!article) return <Navigate to="/articles" replace />
+  if (!article) return <Page404 />
 
   const other = getRelatedArticles(article, 3)
   const isTsr = article.tags?.includes("tsr")
