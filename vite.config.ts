@@ -1,6 +1,7 @@
 import {defineConfig} from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
+import sitemapPlugin from "./sitemap.plugin";
 
 // https://vitejs.dev/config/
 // HMR-сокет превью рвёт инфраструктура: ingress-nginx на каждом reload
@@ -104,6 +105,7 @@ export default defineConfig(({mode}) => ({
     plugins: [
         hmrKeepalive,
         react(),
+        sitemapPlugin(),
     ].filter(Boolean),
     resolve: {
         alias: {
