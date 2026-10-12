@@ -4,6 +4,7 @@ import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { getArticleBySlug, articles } from "@/data/articlesData"
 
 export default function ArticlePage() {
@@ -31,15 +32,7 @@ export default function ArticlePage() {
       <section className="bg-muted py-12 md:py-16 min-h-screen">
         <div className="container mx-auto px-6 flex flex-col gap-8 max-w-2xl">
 
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground flex-wrap" aria-label="Навигация">
-            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
-              <Icon name="Home" size={14} />Главная
-            </Link>
-            <Icon name="ChevronRight" size={14} />
-            <Link to="/articles" className="hover:text-foreground transition-colors">Статьи</Link>
-            <Icon name="ChevronRight" size={14} />
-            <span className="text-foreground truncate max-w-[200px]">{article.title}</span>
-          </nav>
+          <Breadcrumbs items={[{ label: "Статьи", to: "/articles" }, { label: article.title }]} />
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3 text-xs text-muted-foreground">

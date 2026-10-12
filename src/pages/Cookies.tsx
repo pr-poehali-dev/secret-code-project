@@ -1,6 +1,7 @@
 import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
 
 export default function Cookies() {
   useSeo({
@@ -12,6 +13,7 @@ export default function Cookies() {
     <main>
       <LpNavbar1 />
       <article className="container mx-auto px-6 py-16 max-w-3xl">
+        <div className="mb-6"><Breadcrumbs items={[{ label: "Настройки cookies" }]} /></div>
         <h1 className="text-3xl font-bold text-foreground mb-8">Настройки cookies</h1>
 
         <div className="flex flex-col gap-6 text-muted-foreground text-sm leading-relaxed">

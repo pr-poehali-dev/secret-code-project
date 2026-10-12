@@ -4,6 +4,7 @@ import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { getCategoryBySlug } from "@/data/catalogData"
 
 export default function CategoryPage() {
@@ -28,17 +29,7 @@ export default function CategoryPage() {
 
       <section className="bg-muted min-h-screen py-12 md:py-16">
         <div className="container mx-auto px-6 max-w-2xl flex flex-col gap-8">
-
-          {/* Хлебные крошки */}
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Навигация">
-            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
-              <Icon name="Home" size={14} />Главная
-            </Link>
-            <Icon name="ChevronRight" size={14} />
-            <Link to="/catalog" className="hover:text-foreground transition-colors">Каталог</Link>
-            <Icon name="ChevronRight" size={14} />
-            <span className="text-foreground">{category.title}</span>
-          </nav>
+          <Breadcrumbs items={[{ label: "Каталог", to: "/catalog" }, { label: category.title }]} />
 
           {/* Заголовок */}
           <div className="flex flex-col gap-4">

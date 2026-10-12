@@ -4,6 +4,7 @@ import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { childCategories, adultCategories } from "@/data/catalogData"
 
 export default function Catalog() {
@@ -29,15 +30,7 @@ export default function Catalog() {
 
       <section className="bg-muted py-12 md:py-16 min-h-screen">
         <div className="container mx-auto px-6 flex flex-col gap-8 max-w-2xl">
-
-          {/* Хлебные крошки */}
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground" aria-label="Навигация">
-            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
-              <Icon name="Home" size={14} />Главная
-            </Link>
-            <Icon name="ChevronRight" size={14} />
-            <span className="text-foreground">Каталог</span>
-          </nav>
+          <Breadcrumbs items={[{ label: "Каталог" }]} />
 
           <div className="flex flex-col gap-2">
             <h1 className="text-3xl md:text-4xl font-bold text-foreground">Каталог</h1>

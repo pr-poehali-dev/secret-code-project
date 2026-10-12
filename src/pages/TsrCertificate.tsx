@@ -4,6 +4,7 @@ import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
+import { Breadcrumbs } from "@/components/Breadcrumbs"
 
 const IMG_CARD = "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/f4ddf503-a04d-45d7-8071-36f1ade32d8d.jpg"
 const IMG_DOCS = "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/0e8fe766-9e09-43ec-9362-947d21780827.jpg"
@@ -70,13 +71,7 @@ export default function TsrCertificate() {
       <article className="bg-muted py-12 md:py-16">
         <div className="container mx-auto px-6 flex flex-col gap-8 max-w-2xl">
 
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground flex-wrap" aria-label="Навигация">
-            <Link to="/" className="flex items-center gap-1 hover:text-foreground transition-colors">
-              <Icon name="Home" size={14} />Главная
-            </Link>
-            <Icon name="ChevronRight" size={14} />
-            <span className="text-foreground">Сертификат ТСР</span>
-          </nav>
+          <Breadcrumbs items={[{ label: "Сертификат ТСР" }]} />
 
           <header className="flex flex-col gap-4">
             <span className="inline-flex items-center gap-1.5 text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full w-fit">
