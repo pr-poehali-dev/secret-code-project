@@ -1,20 +1,43 @@
-import { useEffect } from "react"
+import { useEffect, useMemo } from "react"
 import { useParams, Link, Navigate } from "react-router-dom"
 import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
-import { getArticleBySlug, articles } from "@/data/articlesData"
+import { getArticleBySlug, getRelatedArticles, toIsoDate } from "@/data/articlesData"
 
 export default function ArticlePage() {
   const { slug } = useParams<{ slug: string }>()
   const article = getArticleBySlug(slug ?? "")
 
+  const url = `https://orto.center/articles/${slug}`
+
+  const jsonLd = useMemo(() => {
+    if (!article) return undefined
+    const published = toIsoDate(article.date)
+    return {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: article.title,
+      description: article.excerpt,
+      image: article.cover,
+      ...(published ? { datePublished: published, dateModified: published } : {}),
+      mainEntityOfPage: { "@type": "WebPage", "@id": url },
+      author: { "@type": "Organization", name: "ОртоЦентр", url: "https://orto.center/" },
+      publisher: {
+        "@type": "Organization",
+        name: "ОртоЦентр",
+        address: "Московская область, г. Мытищи, ул. Карла Маркса д.2",
+      },
+    }
+  }, [article, url])
+
   useSeo({
     title: article ? `${article.title} — ОртоЦентр` : "Статья — ОртоЦентр",
     description: article?.excerpt ?? "",
-    canonical: `https://orto.center/articles/${slug}`,
+    canonical: url,
+    jsonLd,
   })
 
   useEffect(() => {
@@ -23,7 +46,8 @@ export default function ArticlePage() {
 
   if (!article) return <Navigate to="/articles" replace />
 
-  const other = articles.filter((a) => a.slug !== article.slug).slice(0, 2)
+  const other = getRelatedArticles(article, 3)
+  const isTsr = article.tags?.includes("tsr")
 
   return (
     <main>
@@ -43,7 +67,7 @@ export default function ArticlePage() {
           </div>
 
           <div className="h-52 md:h-64 rounded-2xl overflow-hidden">
-            <img src={article.cover} alt={article.title} className="w-full h-full object-cover" />
+            <img src={article.cover} alt={article.title} className="w-full h-full object-cover" width={1360} height={768} fetchPriority="high" />
           </div>
 
           <article className="bg-background border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4">
@@ -84,6 +108,21 @@ export default function ArticlePage() {
             })}
           </article>
 
+          {isTsr && (
+            <Link to="/tsr-sertifikat" className="group bg-background border border-primary/30 rounded-2xl px-6 py-5 flex items-center gap-4 hover:border-primary/60 hover:shadow-md transition-all duration-200">
+              <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 shrink-0">
+                <Icon name="CreditCard" size={20} className="text-primary" />
+              </div>
+              <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                <span className="text-foreground font-semibold text-base leading-tight group-hover:text-primary transition-colors">
+                  Полное руководство по сертификату ТСР
+                </span>
+                <span className="text-muted-foreground text-sm">Кому положен, как оформить и оплатить — всё на одной странице</span>
+              </div>
+              <Icon name="ChevronRight" size={20} className="text-muted-foreground shrink-0 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
+            </Link>
+          )}
+
           <div className="bg-background border border-border rounded-2xl p-6 flex flex-col gap-3">
             <p className="font-semibold text-foreground">Нужна консультация по подбору?</p>
             <p className="text-sm text-muted-foreground">Поможем выбрать оборудование с учётом диагноза и индивидуальных параметров.</p>
@@ -98,7 +137,7 @@ export default function ArticlePage() {
 
           {other.length > 0 && (
             <div className="flex flex-col gap-3">
-              <p className="font-semibold text-foreground">Читайте также</p>
+              <h2 className="font-semibold text-foreground">Читайте также</h2>
               <div className="flex flex-col gap-3">
                 {other.map((a) => (
                   <Link

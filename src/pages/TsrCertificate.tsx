@@ -5,6 +5,7 @@ import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { getArticlesByTag } from "@/data/articlesData"
 
 const IMG_CARD = "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/f4ddf503-a04d-45d7-8071-36f1ade32d8d.jpg"
 const IMG_DOCS = "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/0e8fe766-9e09-43ec-9362-947d21780827.jpg"
@@ -30,6 +31,8 @@ const faqItems = [
 ]
 
 export default function TsrCertificate() {
+  const relatedArticles = getArticlesByTag("tsr")
+
   useSeo({
     title: "Сертификат ТСР в 2026 году: как оформить и оплатить реабилитацию — ОртоЦентр",
     description: "Подробно об электронном сертификате на технические средства реабилитации (ТСР): кому положен, как оформить через СФР и Госуслуги, как оплатить картой «Мир», какие изделия можно купить. Опыт центра в Мытищах.",
@@ -269,6 +272,31 @@ export default function TsrCertificate() {
               +7 905 502-15-02
             </a>
           </div>
+
+          {relatedArticles.length > 0 && (
+            <section className="flex flex-col gap-3" aria-labelledby="tsr-related">
+              <h2 id="tsr-related" className="font-semibold text-foreground text-lg">Статьи по теме</h2>
+              <ul className="flex flex-col gap-3">
+                {relatedArticles.map((a) => (
+                  <li key={a.slug}>
+                    <Link
+                      to={`/articles/${a.slug}`}
+                      className="group bg-background border border-border rounded-2xl px-5 py-4 flex items-center gap-4 hover:border-primary/40 hover:shadow-md transition-all duration-200"
+                    >
+                      <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 shrink-0">
+                        <Icon name={a.icon} size={20} className="text-primary" />
+                      </div>
+                      <div className="flex flex-col gap-0.5 flex-1 min-w-0">
+                        <span className="text-foreground text-sm font-semibold leading-snug group-hover:text-primary transition-colors">{a.title}</span>
+                        <span className="text-muted-foreground text-xs leading-snug line-clamp-2">{a.excerpt}</span>
+                      </div>
+                      <Icon name="ChevronRight" size={16} className="text-muted-foreground shrink-0 group-hover:text-primary group-hover:translate-x-1 transition-all duration-200" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           <Link to="/catalog" className="group bg-background border border-border rounded-2xl px-6 py-5 flex items-center gap-4 hover:border-primary/40 hover:shadow-md transition-all duration-200">
             <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-primary/10 shrink-0">

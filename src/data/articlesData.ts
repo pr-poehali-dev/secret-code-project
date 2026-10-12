@@ -13,6 +13,7 @@ export interface Article {
   readTime: string
   icon: string
   cover: string
+  tags?: string[]
   content: ArticleBlock[]
 }
 
@@ -223,6 +224,7 @@ export const articles: Article[] = [
     readTime: "7 мин",
     icon: "FileText",
     cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/40202829-41a6-4ff0-bacd-c44c7baac160.jpg",
+    tags: ["tsr"],
     content: [
       { type: "paragraph", text: "Людям с инвалидностью, в том числе детям, государство обеспечивает технические средства реабилитации (ТСР): ортезы, туторы, ортопедическую обувь, коляски и многое другое. Многие семьи не пользуются этим правом, потому что не знают, с чего начать. Рассказываем по шагам." },
       { type: "heading", text: "Шаг 1. Включить изделие в ИПРА", icon: "ClipboardList" },
@@ -251,6 +253,7 @@ export const articles: Article[] = [
     readTime: "6 мин",
     icon: "Scale",
     cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/dea865fa-ace0-4166-b652-3ee55cb9e84c.jpg",
+    tags: ["tsr"],
     content: [
       { type: "paragraph", text: "Если в ИПРА уже указано нужное техническое средство реабилитации, у семьи есть выбор: получить изделие по направлению Соцфонда, оформить электронный сертификат или купить самостоятельно и затем получить компенсацию. Направление удобно, когда устраивает типовое изделие. А вот между сертификатом и компенсацией многие сомневаются — разберём разницу." },
       { type: "heading", text: "Как работает электронный сертификат", icon: "CreditCard" },
@@ -284,6 +287,7 @@ export const articles: Article[] = [
     readTime: "5 мин",
     icon: "AlertTriangle",
     cover: "https://cdn.poehali.dev/projects/9208e6ef-a6ed-4504-aa9f-b27608879c28/files/0224b3a3-c354-4be9-b8fe-3a10240aead0.jpg",
+    tags: ["tsr"],
     content: [
       { type: "paragraph", text: "Электронный сертификат заметно упростил покупку средств реабилитации, но иногда оплата на кассе не проходит. Обычно дело не в технической ошибке, а в несовпадении данных. Собрали самые частые причины и способы их избежать." },
       { type: "heading", text: "Частые причины отказа", icon: "ListChecks" },
@@ -310,6 +314,28 @@ export const articles: Article[] = [
     ],
   },
 ]
+
+const MONTHS: Record<string, string> = {
+  "января": "01", "февраля": "02", "марта": "03", "апреля": "04", "мая": "05", "июня": "06",
+  "июля": "07", "августа": "08", "сентября": "09", "октября": "10", "ноября": "11", "декабря": "12",
+}
+
+export function toIsoDate(ruDate: string): string | undefined {
+  const m = ruDate.trim().match(/^(\d{1,2})\s+([а-яё]+)\s+(\d{4})$/i)
+  const month = m && MONTHS[m[2].toLowerCase()]
+  return m && month ? `${m[3]}-${month}-${m[1].padStart(2, "0")}` : undefined
+}
+
+export function getArticlesByTag(tag: string): Article[] {
+  return articles.filter((a) => a.tags?.includes(tag))
+}
+
+export function getRelatedArticles(article: Article, limit = 2): Article[] {
+  const others = articles.filter((a) => a.slug !== article.slug)
+  const sameTag = others.filter((a) => a.tags?.some((t) => article.tags?.includes(t)))
+  const rest = others.filter((a) => !sameTag.includes(a))
+  return [...sameTag, ...rest].slice(0, limit)
+}
 
 export function getArticleBySlug(slug: string): Article | undefined {
   return articles.find((a) => a.slug === slug)
