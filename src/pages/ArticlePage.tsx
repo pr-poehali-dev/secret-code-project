@@ -6,6 +6,7 @@ import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
 import Page404 from "@/pages/Page404"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
+import { ArticleBody, ArticleToc, ArticleFaqBlock } from "@/components/article/ArticleBody"
 import { getArticleBySlug, getRelatedArticles, toIsoDate } from "@/data/articlesData"
 
 export default function ArticlePage() {
@@ -17,26 +18,52 @@ export default function ArticlePage() {
   const jsonLd = useMemo(() => {
     if (!article) return undefined
     const published = toIsoDate(article.date)
-    return {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: article.title,
-      description: article.excerpt,
-      image: article.cover,
-      ...(published ? { datePublished: published, dateModified: published } : {}),
-      mainEntityOfPage: { "@type": "WebPage", "@id": url },
-      author: { "@type": "Organization", name: "ОртоЦентр", url: "https://orto.center/" },
-      publisher: {
-        "@type": "Organization",
-        name: "ОртоЦентр",
-        address: "Московская область, г. Мытищи, ул. Карла Маркса д.2",
+    const modified = article.updated ? toIsoDate(article.updated) : published
+    const org = {
+      "@type": "Organization",
+      name: "ОртоЦентр",
+      url: "https://orto.center/",
+      telephone: "+7 905 502-15-02",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "RU",
+        addressRegion: "Московская область",
+        addressLocality: "Мытищи",
+        streetAddress: "ул. Карла Маркса, д. 2",
       },
     }
+    const graph: object[] = [
+      {
+        "@type": "Article",
+        headline: article.seoTitle ?? article.title,
+        description: article.metaDescription ?? article.excerpt,
+        image: [article.cover],
+        inLanguage: "ru-RU",
+        ...(article.keywords ? { keywords: article.keywords } : {}),
+        ...(published ? { datePublished: published } : {}),
+        ...(modified ? { dateModified: modified } : {}),
+        mainEntityOfPage: { "@type": "WebPage", "@id": url },
+        author: org,
+        publisher: org,
+      },
+    ]
+    if (article.faq?.length) {
+      graph.push({
+        "@type": "FAQPage",
+        mainEntity: article.faq.map((f) => ({
+          "@type": "Question",
+          name: f.q,
+          acceptedAnswer: { "@type": "Answer", text: f.a },
+        })),
+      })
+    }
+    return { "@context": "https://schema.org", "@graph": graph }
   }, [article, url])
 
   useSeo({
-    title: article ? `${article.title} — ОртоЦентр` : "Страница не найдена (404) — ОртоЦентр",
-    description: article?.excerpt ?? "Такой статьи нет на сайте ОртоЦентра.",
+    title: article ? `${article.seoTitle ?? article.title} — ОртоЦентр` : "Страница не найдена (404) — ОртоЦентр",
+    description: article ? article.metaDescription ?? article.excerpt : "Такой статьи нет на сайте ОртоЦентра.",
+    keywords: article?.keywords,
     canonical: url,
     jsonLd,
     noindex: !article,
@@ -64,53 +91,23 @@ export default function ArticlePage() {
 
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-3 text-xs text-muted-foreground">
-              <span className="flex items-center gap-1"><Icon name="Calendar" size={12} />{article.date}</span>
+              <span className="flex items-center gap-1"><Icon name="Calendar" size={12} /><time dateTime={toIsoDate(article.date)}>{article.date}</time></span>
               <span className="flex items-center gap-1"><Icon name="Clock" size={12} />{article.readTime}</span>
             </div>
             <h1 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">{article.title}</h1>
           </div>
 
           <div className="h-52 md:h-64 rounded-2xl overflow-hidden">
-            <img src={article.cover} alt={article.title} className="w-full h-full object-cover" width={1360} height={768} fetchPriority="high" />
+            <img src={article.cover} alt={article.coverAlt ?? article.title} className="w-full h-full object-cover" width={1360} height={768} fetchPriority="high" />
           </div>
 
+          {article.toc && <ArticleToc blocks={article.content} />}
+
           <article className="bg-background border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4">
-            {article.content.map((block, i) => {
-              if (block.type === "heading") {
-                return (
-                  <h2 key={i} className="flex items-center gap-2.5 text-lg font-bold text-foreground mt-3">
-                    {block.icon && (
-                      <span className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 shrink-0">
-                        <Icon name={block.icon} size={18} className="text-primary" />
-                      </span>
-                    )}
-                    {block.text}
-                  </h2>
-                )
-              }
-              if (block.type === "callout") {
-                return (
-                  <div key={i} className="flex items-start gap-3 bg-primary/8 border border-primary/20 rounded-xl p-4">
-                    <Icon name={block.icon ?? "Info"} size={20} className="text-primary shrink-0 mt-0.5" />
-                    <p className="text-foreground text-[15px] leading-relaxed font-medium">{block.text}</p>
-                  </div>
-                )
-              }
-              if (block.type === "list") {
-                return (
-                  <ul key={i} className="flex flex-col gap-2">
-                    {block.items?.map((item, j) => (
-                      <li key={j} className="flex items-start gap-2 text-muted-foreground text-[15px] leading-relaxed">
-                        <Icon name="Check" size={18} className="text-primary shrink-0 mt-0.5" />
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                )
-              }
-              return <p key={i} className="text-muted-foreground text-[15px] leading-relaxed">{block.text}</p>
-            })}
+            <ArticleBody blocks={article.content} />
           </article>
+
+          {article.faq && article.faq.length > 0 && <ArticleFaqBlock items={article.faq} />}
 
           {isTsr && (
             <Link to="/tsr-sertifikat" className="group bg-background border border-primary/30 rounded-2xl px-6 py-5 flex items-center gap-4 hover:border-primary/60 hover:shadow-md transition-all duration-200">
