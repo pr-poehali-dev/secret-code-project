@@ -9,6 +9,7 @@ const MENU_ITEMS = [
   { label: "Отзывы", href: "#reviews" },
   { label: "Тарифы", href: "#pricing" },
   { label: "Вопросы", href: "#faq" },
+  { label: "Контакты", href: "#contacts" },
 ] as const
 
 interface NavMenuItemsProps {

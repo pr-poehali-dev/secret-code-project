@@ -50,7 +50,7 @@ export function Footer2() {
               <a href="/tsr-sertifikat" className="text-muted-foreground hover:text-foreground transition-colors">
                 Сертификат ТСР
               </a>
-              <a href="tel:+79055021502" className="text-muted-foreground hover:text-foreground transition-colors">
+              <a href="/#contacts" onClick={goTo("contacts")} className="text-muted-foreground hover:text-foreground transition-colors">
                 Контакты
               </a>
               <a href="/#pricing" onClick={goTo("pricing")} className="text-muted-foreground hover:text-foreground transition-colors">
