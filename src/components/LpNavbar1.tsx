@@ -2,7 +2,7 @@ import { Logo } from "./Logo"
 import { Button } from "@/components/ui/button"
 import { Menu, X } from "lucide-react"
 import { useState } from "react"
-import { useLocation, Link } from "react-router-dom"
+import { useLocation, Link } from "@/lib/router-compat"
 
 const MENU_ITEMS = [
   { label: "Возможности", href: "#features" },

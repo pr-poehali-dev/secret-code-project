@@ -1,6 +1,5 @@
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
-import { useSeo } from "@/hooks/useSeo"
+import { Link } from "@/lib/router-compat"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
@@ -8,11 +7,6 @@ import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { articles } from "@/data/articlesData"
 
 export default function Articles() {
-  useSeo({
-    title: "Статьи о реабилитации — ОртоЦентр",
-    description: "Полезные статьи о подборе реабилитационного оборудования: инвалидные коляски, реабилитация детей с ДЦП, вертикализаторы и ходунки.",
-    canonical: "https://orto.center/articles",
-  })
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })

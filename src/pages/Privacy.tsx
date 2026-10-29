@@ -1,14 +1,8 @@
-import { useSeo } from "@/hooks/useSeo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 
 export default function Privacy() {
-  useSeo({
-    title: "Политика конфиденциальности — ОртоЦентр",
-    description: "Политика конфиденциальности ОртоЦентр. Как мы собираем, храним и защищаем персональные данные пользователей. ИП Тамбовцев А.С., Мытищи.",
-    canonical: "https://orto.center/privacy",
-  })
   return (
     <main>
       <LpNavbar1 />

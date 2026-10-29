@@ -1,6 +1,6 @@
 import { useEffect } from "react"
-import { Link } from "react-router-dom"
-import { useSeo } from "@/hooks/useSeo"
+import { Link } from "@/lib/router-compat"
+import type { SeoHeadProps } from "@/lib/seo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
@@ -30,10 +30,7 @@ const faqItems = [
   },
 ]
 
-export default function TsrCertificate() {
-  const relatedArticles = getArticlesByTag("tsr")
-
-  useSeo({
+export const tsrSeo: SeoHeadProps = {
     title: "Сертификат ТСР в 2026 году: как оформить и оплатить реабилитацию — ОртоЦентр",
     description: "Подробно об электронном сертификате на технические средства реабилитации (ТСР): кому положен, как оформить через СФР и Госуслуги, как оплатить картой «Мир», какие изделия можно купить. Опыт центра в Мытищах.",
     canonical: "https://orto.center/tsr-sertifikat",
@@ -61,7 +58,10 @@ export default function TsrCertificate() {
         })),
       },
     },
-  })
+}
+
+export default function TsrCertificate() {
+  const relatedArticles = getArticlesByTag("tsr")
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })

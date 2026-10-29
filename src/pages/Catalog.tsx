@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
-import { useSearchParams, Link } from "react-router-dom"
-import { useSeo } from "@/hooks/useSeo"
+import { useSearchParams, Link } from "@/lib/router-compat"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
@@ -12,11 +11,6 @@ export default function Catalog() {
   const initialTab = searchParams.get("tab") === "adult" ? "adult" : "child"
   const [tab, setTab] = useState<"child" | "adult">(initialTab)
 
-  useSeo({
-    title: "Каталог реабилитационного оборудования — ОртоЦентр",
-    description: "Каталог реабилитационного оборудования: детские и взрослые коляски, вертикализаторы, ходунки, электроскутеры, медицинские кровати. Мытищи.",
-    canonical: "https://orto.center/catalog",
-  })
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })

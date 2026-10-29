@@ -1,4 +1,4 @@
-import { useNavigate, useLocation } from "react-router-dom"
+import { useNavigate, useLocation } from "@/lib/router-compat"
 
 export function useAnchorNav() {
   const navigate = useNavigate()

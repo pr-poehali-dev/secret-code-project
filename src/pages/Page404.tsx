@@ -1,6 +1,5 @@
 import { useEffect } from "react"
-import { Link, useLocation } from "react-router-dom"
-import { useSeo } from "@/hooks/useSeo"
+import { Link, useLocation } from "@/lib/router-compat"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
@@ -29,11 +28,6 @@ export default function Page404() {
   const location = useLocation()
   const suggestion = findSuggestion(location.pathname)
 
-  useSeo({
-    title: "Страница не найдена (404) — ОртоЦентр",
-    description: "Такой страницы нет на сайте ОртоЦентра. Перейдите в каталог, к статьям или на главную.",
-    noindex: true,
-  })
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })

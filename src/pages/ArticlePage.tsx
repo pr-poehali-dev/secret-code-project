@@ -1,21 +1,31 @@
-import { useEffect, useMemo } from "react"
-import { useParams, Link } from "react-router-dom"
-import { useSeo } from "@/hooks/useSeo"
+import { useEffect } from "react"
+import { useParams, Link } from "@/lib/router-compat"
+import type { SeoHeadProps } from "@/lib/seo"
 import { LpNavbar1 } from "@/components/LpNavbar1"
 import { Footer2 } from "@/components/Footer2"
 import Icon from "@/components/ui/icon"
 import Page404 from "@/pages/Page404"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { ArticleBody, ArticleToc, ArticleFaqBlock } from "@/components/article/ArticleBody"
-import { getArticleBySlug, getRelatedArticles, toIsoDate } from "@/data/articlesData"
+import { getArticleBySlug, getRelatedArticles, toIsoDate, type Article } from "@/data/articlesData"
 
-export default function ArticlePage() {
-  const { slug } = useParams<{ slug: string }>()
-  const article = getArticleBySlug(slug ?? "")
-
+export function articleSeo(slug: string): SeoHeadProps {
+  const article = getArticleBySlug(slug)
   const url = `https://orto.center/articles/${slug}`
+  return {
+    title: article ? `${article.seoTitle ?? article.title} — ОртоЦентр` : "Страница не найдена (404) — ОртоЦентр",
+    description: article ? article.metaDescription ?? article.excerpt : "Такой статьи нет на сайте ОртоЦентра.",
+    keywords: article?.keywords,
+    canonical: url,
+    jsonLd: buildJsonLd(article, url),
+    noindex: !article,
+    image: article?.cover,
+    type: article ? "article" : "website",
+  }
+}
 
-  const jsonLd = useMemo(() => {
+function buildJsonLd(article: Article | undefined, url: string): object | undefined {
+  {
     if (!article) return undefined
     const published = toIsoDate(article.date)
     const modified = article.updated ? toIsoDate(article.updated) : published
@@ -58,18 +68,12 @@ export default function ArticlePage() {
       })
     }
     return { "@context": "https://schema.org", "@graph": graph }
-  }, [article, url])
+  }
+}
 
-  useSeo({
-    title: article ? `${article.seoTitle ?? article.title} — ОртоЦентр` : "Страница не найдена (404) — ОртоЦентр",
-    description: article ? article.metaDescription ?? article.excerpt : "Такой статьи нет на сайте ОртоЦентра.",
-    keywords: article?.keywords,
-    canonical: url,
-    jsonLd,
-    noindex: !article,
-    image: article?.cover,
-    type: article ? "article" : "website",
-  })
+export default function ArticlePage() {
+  const { slug } = useParams<{ slug: string }>()
+  const article = getArticleBySlug(slug ?? "")
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" })
