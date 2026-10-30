@@ -56,6 +56,7 @@ export const Route = createRootRoute({
                 ]
                 : [{title: TITLE}, {name: "description", content: DESCRIPTION}]),
             {name: "author", content: "ОртоЦентр"},
+            {name: "yandex-verification", content: "d6ea05983bf4f57c"},
             {property: "og:type", content: "website"},
             {property: "og:site_name", content: "ОртоЦентр"},
             {property: "og:locale", content: "ru_RU"},
