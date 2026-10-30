@@ -1,5 +1,6 @@
 import Icon from "@/components/ui/icon"
 import type { ArticleBlock } from "@/data/articlesData"
+import { RichText } from "./RichText"
 
 export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
   return (
@@ -27,7 +28,7 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
             return (
               <aside key={i} className="flex items-start gap-3 bg-primary/8 border border-primary/20 rounded-xl p-4">
                 <Icon name={block.icon ?? "Info"} size={20} className="text-primary shrink-0 mt-0.5" />
-                <p className="text-foreground text-[15px] leading-relaxed font-medium">{block.text}</p>
+                <p className="text-foreground text-[15px] leading-relaxed font-medium"><RichText text={block.text} /></p>
               </aside>
             )
           case "list":
@@ -36,7 +37,7 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
                 {block.items?.map((item, j) => (
                   <li key={j} className="flex items-start gap-2 text-muted-foreground text-[15px] leading-relaxed">
                     <Icon name="Check" size={18} className="text-primary shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <span><RichText text={item} /></span>
                   </li>
                 ))}
               </ul>
@@ -49,7 +50,7 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
                     <span className="flex items-center justify-center w-7 h-7 rounded-full bg-primary text-primary-foreground text-sm font-bold shrink-0">
                       {j + 1}
                     </span>
-                    <span className="pt-0.5">{item}</span>
+                    <span className="pt-0.5"><RichText text={item} /></span>
                   </li>
                 ))}
               </ol>
@@ -74,7 +75,7 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
                           c === 0 ? (
                             <th key={c} scope="row" className="text-left font-medium text-foreground px-3 py-2.5 align-top">{cell}</th>
                           ) : (
-                            <td key={c} className="text-muted-foreground px-3 py-2.5 align-top leading-relaxed">{cell}</td>
+                            <td key={c} className="text-muted-foreground px-3 py-2.5 align-top leading-relaxed"><RichText text={cell} /></td>
                           ),
                         )}
                       </tr>
@@ -84,7 +85,7 @@ export function ArticleBody({ blocks }: { blocks: ArticleBlock[] }) {
               </div>
             )
           default:
-            return <p key={i} className="text-muted-foreground text-[15px] leading-relaxed">{block.text}</p>
+            return <p key={i} className="text-muted-foreground text-[15px] leading-relaxed"><RichText text={block.text} /></p>
         }
       })}
     </>
@@ -128,7 +129,7 @@ export function ArticleFaqBlock({ items }: { items: { q: string; a: string }[] }
               <h3 className="flex-1 text-[15px]">{f.q}</h3>
               <Icon name="ChevronDown" size={17} className="text-muted-foreground shrink-0 mt-0.5 transition-transform group-open:rotate-180" />
             </summary>
-            <p className="pl-6 pt-2 text-muted-foreground text-[15px] leading-relaxed">{f.a}</p>
+            <p className="pl-6 pt-2 text-muted-foreground text-[15px] leading-relaxed"><RichText text={f.a} /></p>
           </details>
         ))}
       </div>

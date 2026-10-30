@@ -7,6 +7,7 @@ import Icon from "@/components/ui/icon"
 import Page404 from "@/pages/Page404"
 import { Breadcrumbs } from "@/components/Breadcrumbs"
 import { ArticleBody, ArticleToc, ArticleFaqBlock } from "@/components/article/ArticleBody"
+import { stripLinks } from "@/components/article/RichText"
 import { getArticleBySlug, getRelatedArticles, toIsoDate, type Article } from "@/data/articlesData"
 
 export function articleSeo(slug: string): SeoHeadProps {
@@ -63,7 +64,7 @@ function buildJsonLd(article: Article | undefined, url: string): object | undefi
         mainEntity: article.faq.map((f) => ({
           "@type": "Question",
           name: f.q,
-          acceptedAnswer: { "@type": "Answer", text: f.a },
+          acceptedAnswer: { "@type": "Answer", text: stripLinks(f.a) },
         })),
       })
     }
